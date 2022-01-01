@@ -1,0 +1,1321 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>实验指导 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-synthwave84.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-pp/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="judge.html" />
+    
+    
+    <link rel="prev" href="part12_task.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    实验简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../report.html">
+            
+                <a href="../report.html">
+            
+                    
+                    报告要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../integrity.html">
+            
+                <a href="../integrity.html">
+            
+                    
+                    诚信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../pre/llvm.html">
+            
+                <a href="../pre/llvm.html">
+            
+                    
+                    LLVM 相关内容
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../pre/llvm_download.html">
+            
+                <a href="../pre/llvm_download.html">
+            
+                    
+                    LLVM 工具链下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../pre/llvm_tool_chain.html">
+            
+                <a href="../pre/llvm_tool_chain.html">
+            
+                    
+                    LLVM 工具链介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../pre/llvm_ir_quick_primer.html">
+            
+                <a href="../pre/llvm_ir_quick_primer.html">
+            
+                    
+                    LLVM IR 快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../pre/llvm_ir_ssa.html">
+            
+                <a href="../pre/llvm_ir_ssa.html">
+            
+                    
+                    LLVM IR SSA 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../pre/design_hints.html">
+            
+                <a href="../pre/design_hints.html">
+            
+                    
+                    LLVM 架构中最重要的概念，以及编译器设计的提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../pre/suggested_insts.html">
+            
+                <a href="../pre/suggested_insts.html">
+            
+                    
+                    推荐指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../pre/pre.html">
+            
+                <a href="../pre/pre.html">
+            
+                    
+                    pre
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../pre/generator/generator.html">
+            
+                <a href="../pre/generator/generator.html">
+            
+                    
+                    （阅读）flex/bison/ANTLR
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../pre/generator/flex.html">
+            
+                <a href="../pre/generator/flex.html">
+            
+                    
+                    flex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="../pre/generator/bison.html">
+            
+                <a href="../pre/generator/bison.html">
+            
+                    
+                    bison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="../pre/generator/ANTLR.html">
+            
+                <a href="../pre/generator/ANTLR.html">
+            
+                    
+                    ANTLR
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../pre/judge.html">
+            
+                <a href="../pre/judge.html">
+            
+                    
+                    （阅读）评测机食用指北
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../pre/lab_lexer.html">
+            
+                <a href="../pre/lab_lexer.html">
+            
+                    
+                    （实验）词法分析小实验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../miniSysY.html">
+            
+                <a href="../miniSysY.html">
+            
+                    
+                    剩下的旅程：miniSysY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../lab1/compiler_structure.html">
+            
+                <a href="../lab1/compiler_structure.html">
+            
+                    
+                    编译过程概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../lab1/lab1.html">
+            
+                <a href="../lab1/lab1.html">
+            
+                    
+                    lab 1：main 与注释
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../lab1/part1_task.html">
+            
+                <a href="../lab1/part1_task.html">
+            
+                    
+                    part1：仅有 main 函数与 return 的编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../lab1/part2_task.html">
+            
+                <a href="../lab1/part2_task.html">
+            
+                    
+                    part2：消除注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../lab1/help.html">
+            
+                <a href="../lab1/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../lab1/judge.html">
+            
+                <a href="../lab1/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../lab2/lab2.html">
+            
+                <a href="../lab2/lab2.html">
+            
+                    
+                    lab 2：常量表达式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../lab2/part3_task.html">
+            
+                <a href="../lab2/part3_task.html">
+            
+                    
+                    part3：实现正号、负号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../lab2/part4_task.html">
+            
+                <a href="../lab2/part4_task.html">
+            
+                    
+                    part4：实现四则运算及模运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../lab2/help.html">
+            
+                <a href="../lab2/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../lab2/judge.html">
+            
+                <a href="../lab2/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../lab3/lab3.html">
+            
+                <a href="../lab3/lab3.html">
+            
+                    
+                    lab 3：局部变量
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../lab3/part5_task.html">
+            
+                <a href="../lab3/part5_task.html">
+            
+                    
+                    part5：局部变量与赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../lab3/part6_task.html">
+            
+                <a href="../lab3/part6_task.html">
+            
+                    
+                    part6：调用函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../lab3/help.html">
+            
+                <a href="../lab3/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../lab3/judge.html">
+            
+                <a href="../lab3/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../lab4/lab4.html">
+            
+                <a href="../lab4/lab4.html">
+            
+                    
+                    lab 4：条件语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../lab4/part7_task.html">
+            
+                <a href="../lab4/part7_task.html">
+            
+                    
+                    part7：if 语句与条件表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../lab4/help.html">
+            
+                <a href="../lab4/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../lab4/judge.html">
+            
+                <a href="../lab4/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../lab5/lab5.html">
+            
+                <a href="../lab5/lab5.html">
+            
+                    
+                    lab 5：作用域与全局变量
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../lab5/part8_task.html">
+            
+                <a href="../lab5/part8_task.html">
+            
+                    
+                    part8：作用域与块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../lab5/part9_task.html">
+            
+                <a href="../lab5/part9_task.html">
+            
+                    
+                    part⑨：全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../lab5/judge.html">
+            
+                <a href="../lab5/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../lab6/lab6.html">
+            
+                <a href="../lab6/lab6.html">
+            
+                    
+                    lab 6：循环
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../lab6/part10_task.html">
+            
+                <a href="../lab6/part10_task.html">
+            
+                    
+                    part10：循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../lab6/part11_task.html">
+            
+                <a href="../lab6/part11_task.html">
+            
+                    
+                    part11：continue、break 与代码回填
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../lab6/help.html">
+            
+                <a href="../lab6/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../lab6/judge.html">
+            
+                <a href="../lab6/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="lab7.html">
+            
+                <a href="lab7.html">
+            
+                    
+                    lab 7：数组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="part12_task.html">
+            
+                <a href="part12_task.html">
+            
+                    
+                    part12：一维数组、二维数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.14.2" data-path="help.html">
+            
+                <a href="help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="judge.html">
+            
+                <a href="judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../lab8/lab8.html">
+            
+                <a href="../lab8/lab8.html">
+            
+                    
+                    lab 8：函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../lab8/part13_task.html">
+            
+                <a href="../lab8/part13_task.html">
+            
+                    
+                    part13：函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../lab8/judge.html">
+            
+                <a href="../lab8/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../challenge/challenge.html">
+            
+                <a href="../challenge/challenge.html">
+            
+                    
+                    challenge：人类是有极限的，你不用全做
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" >
+            
+                <span>
+            
+                    
+                    case1：mem2reg
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1.1" data-path="../challenge/mem2reg/task.html">
+            
+                <a href="../challenge/mem2reg/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.1.2" data-path="../challenge/mem2reg/help.html">
+            
+                <a href="../challenge/mem2reg/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" >
+            
+                <span>
+            
+                    
+                    case2：多维数组
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.2.1" data-path="../challenge/multidimen/task.html">
+            
+                <a href="../challenge/multidimen/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" >
+            
+                <span>
+            
+                    
+                    case3：函数内联
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.3.1" data-path="../challenge/functionInline/task.html">
+            
+                <a href="../challenge/functionInline/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3.2" data-path="../challenge/functionInline/help.html">
+            
+                <a href="../challenge/functionInline/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" >
+            
+                <span>
+            
+                    
+                    case4：短路求值
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.4.1" data-path="../challenge/shortcircuit/task.html">
+            
+                <a href="../challenge/shortcircuit/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4.2" data-path="../challenge/shortcircuit/help.html">
+            
+                <a href="../challenge/shortcircuit/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    参考文献、致谢、示例编译器以及其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../ref.html">
+            
+                <a href="../ref.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../others.html">
+            
+                <a href="../others.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.3" data-path="../thanks.html">
+            
+                <a href="../thanks.html">
+            
+                    
+                    致谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.4" data-path="../example.html">
+            
+                <a href="../example.html">
+            
+                    
+                    示例编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >实验指导</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lab-7-&#x5B9E;&#x9A8C;&#x6307;&#x5BFC;">Lab 7 &#x5B9E;&#x9A8C;&#x6307;&#x5BFC;</h1>
+<h2 id="&#x7406;&#x89E3;-getelementptr-&#x6307;&#x4EE4;">&#x7406;&#x89E3; <code>getElementPtr</code> &#x6307;&#x4EE4;</h2>
+<p>&#x5728;&#x4F60;&#x51C6;&#x5907;&#x52A8;&#x624B;&#x5199;&#x8FD9;&#x4E2A; lab &#x4E4B;&#x524D;&#xFF0C;&#x6211;&#x4EEC;<strong>&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;</strong>&#x4F60;&#x5148;&#x81EA;&#x5DF1;&#x5199;&#x51E0;&#x4E2A;&#x5E26;&#x6709;&#x6570;&#x7EC4;&#x7684;&#x7A0B;&#x5E8F;&#x5E76;&#x81EA;&#x5DF1;&#x7F16;&#x8BD1;&#x4E3A; LLVM IR &#x770B;&#x4E00;&#x4E0B;&#x4E0D;&#x540C;&#x60C5;&#x51B5;&#x4E0B; clang &#x662F;&#x600E;&#x4E48;&#x505A;&#x7684;&#xFF0C;&#x4E0D;&#x7136;&#x4F60;&#x53EF;&#x80FD;&#x4F1A;&#x5BF9; <code>getElementPtr</code>&#xFF08;&#x4E0B;&#x9762;&#x7B80;&#x79F0;&#x4E3A; GEP) &#x8FD9;&#x4E2A;&#x6307;&#x4EE4;&#x611F;&#x5230;&#x8FF7;&#x60D1;&#x3002;&#x5982;&#x679C;&#x4F60;&#x770B;&#x5B8C;&#x5B9E;&#x9A8C;&#x6307;&#x5BFC;&#x5E76;&#x4E14;&#x751F;&#x6210;&#x4E86;&#x81EA;&#x5DF1;&#x7684;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#x8FD8;&#x662F;&#x6709;&#x7591;&#x95EE;&#xFF0C;&#x53EF;&#x4EE5;&#x6D4F;&#x89C8; <a href="https://llvm.org/docs/GetElementPtr.html" target="_blank">&#x8FD9;&#x91CC;</a>&#x3002;</p>
+<p>LLVM &#x7684;&#x6307;&#x9488;&#x64CD;&#x4F5C; GEP &#x6307;&#x4EE4;&#x51E0;&#x4E4E;&#x662F;&#x6240;&#x6709;&#x6307;&#x9488;&#x8BA1;&#x7B97;&#x7684;&#x5173;&#x952E;&#x3002;</p>
+<p>GEP &#x6307;&#x4EE4;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x201C;&#x8BA1;&#x7B97;&#x5730;&#x5740;&#x201D;&#xFF0C;&#x672C;&#x8EAB;&#x5E76;&#x4E0D;&#x8FDB;&#x884C;&#x4EFB;&#x4F55;&#x6570;&#x636E;&#x7684;&#x8BBF;&#x95EE;&#x548C;&#x4FEE;&#x6539;&#x3002;GEP &#x6307;&#x4EE4;&#x7684;&#x6700;&#x57FA;&#x672C;&#x8BED;&#x6CD5;&#x4E3A; <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>result</span><span class="token punctuation">&gt;</span></span> = getelementptr <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span>, <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span>* <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ptrval</span><span class="token punctuation">&gt;</span></span>, {<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>index</span><span class="token punctuation">&gt;</span></span>}*</code>&#xFF0C;&#x5176;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A; <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span></code> &#x8868;&#x793A;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x6240;&#x6307;&#x5411;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A; <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span></code> &#x8868;&#x793A;&#x540E;&#x9762;&#x7684;&#x6307;&#x9488;&#x57FA;&#x5740; <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ptrval</span><span class="token punctuation">&gt;</span></span></code> &#x7684;&#x7C7B;&#x578B;&#xFF0C;<code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>index</span><span class="token punctuation">&gt;</span></span></code> &#x8868;&#x793A;&#x4E00;&#x7EC4;&#x7D22;&#x5F15;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x503C;&#x3002;&#x8981;&#x6CE8;&#x610F;&#x7D22;&#x5F15;&#x7684;&#x7C7B;&#x578B;&#x548C;&#x7D22;&#x5F15;&#x6307;&#x5411;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x662F;&#x4E0D;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x7D22;&#x5F15;&#x7684;&#x7C7B;&#x578B;&#x4E00;&#x822C;&#x4E3A; <code>i32</code> &#x6216; <code>i64</code> &#xFF0C;&#x800C;&#x7D22;&#x5F15;&#x6307;&#x5411;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x786E;&#x5B9A;&#x7684;&#x662F;&#x589E;&#x52A0;&#x7D22;&#x5F15;&#x503C;&#x65F6;&#x6307;&#x9488;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4; <code>ptrval</code> &#x524D;&#x9762;&#x7684; <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ty</span><span class="token punctuation">&gt;</span></span>*</code> &#x5BF9;&#x5E94;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF0C;&#x8FD4;&#x56DE;&#x5C31;&#x662F;&#x4EC0;&#x4E48;&#x7C7B;&#x578B;&#xFF1B;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x7684;&#x504F;&#x79FB;&#x91CF;&#x7684;&#x662F;&#x7531;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x7684;&#x503C;&#x548C;&#x7B2C;&#x4E00;&#x4E2A; <code>ty</code> &#x6307;&#x5B9A;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5171;&#x540C;&#x786E;&#x5B9A;&#x7684;&#x3002;</p>
+<p><img src="../pic/gep1.jpg" alt="gep1"></p>
+<p>&#x4E0A;&#x56FE;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x6307;&#x5411;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x662F; <code>[6 x i8]</code>&#xFF0C;&#x7D22;&#x5F15;&#x503C;&#x662F; 1&#xFF0C;&#x6240;&#x4EE5; GEP &#x6307;&#x4EE4;&#x8FD4;&#x56DE;&#x7684;&#x503C;&#x76F8;&#x5BF9;&#x57FA;&#x5740; <code>@a_gv</code> &#x524D;&#x8FDB;&#x4E86; 6 &#x4E2A;&#x5B57;&#x8282;&#x3002;&#x7531;&#x4E8E;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#xFF0C;&#x6240;&#x4EE5;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;&#x4E5F;&#x662F; <code>[6 x i8]*</code> &#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x800C;&#x5BF9;&#x4E8E;&#x540E;&#x9762;&#x7684;&#x7D22;&#x5F15;&#xFF0C;&#x6BCF;&#x589E;&#x52A0;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#xFF0C;&#x5C31;&#x4F1A;&#x4F7F;&#x5F97;&#x8BE5;&#x7D22;&#x5F15;&#x4F7F;&#x7528;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x548C;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;&#x7684;&#x7C7B;&#x578B;&#x53BB;&#x6389;&#x4E00;&#x5C42;&#x3002;</p>
+<p><img src="../pic/gep2.jpg" alt="gep2"></p>
+<p>&#x4E0A;&#x56FE;&#x4E2D; <code>%elem_ptr = getelementptr [6 x i8], [6 x i8]* @a_gv, i32 0, i32 1</code> &#x8FD9;&#x4E00;&#x53E5;&#x4E2D;&#x7B2C;&#x4E00;&#x4E2A;&#x7D22;&#x5F15;&#x503C;&#x662F; 0&#xFF0C;&#x6307;&#x5411;&#x7684;&#x7C7B;&#x578B;&#x662F; <code>[6 x i8]</code>&#xFF0C;&#x56E0;&#x6B64;&#x5176;&#x4F7F;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;&#x5148;&#x524D;&#x8FDB; 0 x 6 &#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x4E0D;&#x524D;&#x8FDB;&#x3002;&#x7B2C;&#x4E8C;&#x4E2A;&#x7D22;&#x5F15;&#x7684;&#x503C;&#x662F; 1&#xFF0C;&#x4F7F;&#x7528;&#x7684;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x5C31;&#x662F; <code>i8</code>&#xFF08;<code>[6 x i8]</code> &#x53BB;&#x6389;&#x5DE6;&#x8FB9;&#x7684; 6&#xFF09;&#xFF0C;&#x56E0;&#x6B64;&#x5176;&#x4F7F;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;&#x524D;&#x8FDB;&#x4E00;&#x4E2A;&#x5B57;&#x8282;&#xFF0C;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;&#x7C7B;&#x578B;&#x4E3A; <code>i8*</code>&#x3002;</p>
+<p>GEP &#x6307;&#x4EE4;&#x5BF9;&#x4E8E;&#x65B0;&#x4E0A;&#x624B;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x6765;&#x8BF4;&#x6BD4;&#x8F83;&#x96BE;&#x7406;&#x89E3;&#xFF0C;&#x6240;&#x5E78;&#x6211;&#x4EEC;&#x5B9E;&#x9A8C;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x6307;&#x9488;&#x8BA1;&#x7B97;&#x7684;&#x90E8;&#x5206;&#x53EA;&#x6709;&#x6570;&#x7EC4;&#xFF0C;&#x800C;&#x4E14;&#x9AD8;&#x7EF4;&#x6570;&#x7EC4;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#x6765;&#x6A21;&#x62DF;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A; <code>[4][5]</code> &#x7684;&#x4E8C;&#x7EF4;&#x6570;&#x7EC4;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x7528;&#x4E00;&#x4E2A; <code>[20]</code> &#x7684;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#x6765;&#x6A21;&#x62DF;&#xFF0C;&#x8FD9;&#x5C31;&#x6781;&#x5927;&#x7684;&#x51CF;&#x5C11;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x5DE5;&#x4F5C;&#x91CF;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x5BF9;&#x6570;&#x7EC4; <code>a[5][4]</code> &#x4E2D;&#x4F7F;&#x7528; GEP &#x6307;&#x4EE4;&#x8BA1;&#x7B97; <code>a[2][3]</code> &#x7684;&#x5730;&#x5740;&#xFF0C;&#x7ED9;&#x51FA;&#x51E0;&#x4E2A;&#x4F7F;&#x7528; GEP &#x6307;&#x4EE4;&#x7684;&#x793A;&#x4F8B;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token comment">; 1</span>
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">global</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token keyword">zeroinitializer</span>
+<span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">@a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">3</span> <span class="token comment">; %1 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+
+<span class="token comment">; 2</span>
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">global</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token keyword">zeroinitializer</span>
+<span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">@a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">2</span>  <span class="token comment">; %1 &#x7C7B;&#x578B;&#x4E3A; [4 x i32]*&#xFF0C;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A; C &#x8BED;&#x8A00;&#x4E2D;&#x6307;&#x5411;&#x957F;&#x5EA6;&#x4E3A; 4 &#x7684;&#x4E00;&#x7EF4;&#x6570;&#x7EC4;&#x57FA;&#x5740;&#x7684;&#x6307;&#x9488;</span>
+<span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">3</span> <span class="token comment">; %2 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+
+<span class="token comment">; 3</span>
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">global</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token keyword">zeroinitializer</span>
+<span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span> <span class="token keyword">x</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">@a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span>  <span class="token comment">; %1 &#x7C7B;&#x578B;&#x4E3A; [4 x i32]*</span>
+<span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">4</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">3</span> <span class="token comment">; %2 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+
+<span class="token comment">; 4</span>
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">global</span> <span class="token punctuation">[</span><span class="token number">20</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span> <span class="token keyword">zeroinitializer</span>
+<span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">mul</span> <span class="token type class-name">i32</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span>
+<span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">add</span> <span class="token type class-name">i32</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token number">3</span>
+<span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">20</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">20</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">@a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%2</span> <span class="token comment">; %3 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+
+<span class="token comment">; 5</span>
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">global</span> <span class="token punctuation">[</span><span class="token number">20</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span> <span class="token keyword">zeroinitializer</span>
+<span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token punctuation">[</span><span class="token number">20</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">20</span> <span class="token keyword">x</span> <span class="token type class-name">i32</span><span class="token punctuation">]</span><span class="token punctuation">*</span> <span class="token variable">@a</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">0</span> <span class="token comment">; %1 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+<span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">mul</span> <span class="token type class-name">i32</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4</span>
+<span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%2</span> <span class="token comment">; %3 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+<span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">getelementptr</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">3</span> <span class="token comment">; %4 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="part12_task.html" class="navigation navigation-prev " aria-label="Previous page: part12：一维数组、二维数组">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="judge.html" class="navigation navigation-next " aria-label="Next page: 评测说明">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"实验指导","level":"1.14.2","depth":2,"next":{"title":"评测说明","level":"1.14.3","depth":2,"path":"lab7/judge.md","ref":"lab7/judge.md","articles":[]},"previous":{"title":"part12：一维数组、二维数组","level":"1.14.1","depth":2,"path":"lab7/part12_task.md","ref":"lab7/part12_task.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","expandable-chapters","code","chapter-fold","splitter","github","-highlight","prism","prism-themes","theme-comscore","katex-pp"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prism-themes/themes/prism-synthwave84.css"]},"github":{"url":"https://github.com/BUAA-SE-Compiling/Slang-tutorial"},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"katex-pp":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"lab7/help.md","mtime":"2022-01-01T14:16:35.421Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-01T14:17:28.885Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

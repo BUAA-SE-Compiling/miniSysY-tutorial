@@ -1,0 +1,1349 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>实验指导 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-synthwave84.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-pp/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="judge.html" />
+    
+    
+    <link rel="prev" href="part6_task.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    实验简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../report.html">
+            
+                <a href="../report.html">
+            
+                    
+                    报告要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../integrity.html">
+            
+                <a href="../integrity.html">
+            
+                    
+                    诚信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../pre/llvm.html">
+            
+                <a href="../pre/llvm.html">
+            
+                    
+                    LLVM 相关内容
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../pre/llvm_download.html">
+            
+                <a href="../pre/llvm_download.html">
+            
+                    
+                    LLVM 工具链下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../pre/llvm_tool_chain.html">
+            
+                <a href="../pre/llvm_tool_chain.html">
+            
+                    
+                    LLVM 工具链介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../pre/llvm_ir_quick_primer.html">
+            
+                <a href="../pre/llvm_ir_quick_primer.html">
+            
+                    
+                    LLVM IR 快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../pre/llvm_ir_ssa.html">
+            
+                <a href="../pre/llvm_ir_ssa.html">
+            
+                    
+                    LLVM IR SSA 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../pre/design_hints.html">
+            
+                <a href="../pre/design_hints.html">
+            
+                    
+                    LLVM 架构中最重要的概念，以及编译器设计的提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../pre/suggested_insts.html">
+            
+                <a href="../pre/suggested_insts.html">
+            
+                    
+                    推荐指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../pre/pre.html">
+            
+                <a href="../pre/pre.html">
+            
+                    
+                    pre
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../pre/generator/generator.html">
+            
+                <a href="../pre/generator/generator.html">
+            
+                    
+                    （阅读）flex/bison/ANTLR
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="../pre/generator/flex.html">
+            
+                <a href="../pre/generator/flex.html">
+            
+                    
+                    flex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="../pre/generator/bison.html">
+            
+                <a href="../pre/generator/bison.html">
+            
+                    
+                    bison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="../pre/generator/ANTLR.html">
+            
+                <a href="../pre/generator/ANTLR.html">
+            
+                    
+                    ANTLR
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../pre/judge.html">
+            
+                <a href="../pre/judge.html">
+            
+                    
+                    （阅读）评测机食用指北
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../pre/lab_lexer.html">
+            
+                <a href="../pre/lab_lexer.html">
+            
+                    
+                    （实验）词法分析小实验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../miniSysY.html">
+            
+                <a href="../miniSysY.html">
+            
+                    
+                    剩下的旅程：miniSysY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../lab1/compiler_structure.html">
+            
+                <a href="../lab1/compiler_structure.html">
+            
+                    
+                    编译过程概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../lab1/lab1.html">
+            
+                <a href="../lab1/lab1.html">
+            
+                    
+                    lab 1：main 与注释
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../lab1/part1_task.html">
+            
+                <a href="../lab1/part1_task.html">
+            
+                    
+                    part1：仅有 main 函数与 return 的编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../lab1/part2_task.html">
+            
+                <a href="../lab1/part2_task.html">
+            
+                    
+                    part2：消除注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../lab1/help.html">
+            
+                <a href="../lab1/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../lab1/judge.html">
+            
+                <a href="../lab1/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../lab2/lab2.html">
+            
+                <a href="../lab2/lab2.html">
+            
+                    
+                    lab 2：常量表达式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../lab2/part3_task.html">
+            
+                <a href="../lab2/part3_task.html">
+            
+                    
+                    part3：实现正号、负号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../lab2/part4_task.html">
+            
+                <a href="../lab2/part4_task.html">
+            
+                    
+                    part4：实现四则运算及模运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../lab2/help.html">
+            
+                <a href="../lab2/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../lab2/judge.html">
+            
+                <a href="../lab2/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="lab3.html">
+            
+                <a href="lab3.html">
+            
+                    
+                    lab 3：局部变量
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="part5_task.html">
+            
+                <a href="part5_task.html">
+            
+                    
+                    part5：局部变量与赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="part6_task.html">
+            
+                <a href="part6_task.html">
+            
+                    
+                    part6：调用函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.10.3" data-path="help.html">
+            
+                <a href="help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="judge.html">
+            
+                <a href="judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../lab4/lab4.html">
+            
+                <a href="../lab4/lab4.html">
+            
+                    
+                    lab 4：条件语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../lab4/part7_task.html">
+            
+                <a href="../lab4/part7_task.html">
+            
+                    
+                    part7：if 语句与条件表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../lab4/help.html">
+            
+                <a href="../lab4/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../lab4/judge.html">
+            
+                <a href="../lab4/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../lab5/lab5.html">
+            
+                <a href="../lab5/lab5.html">
+            
+                    
+                    lab 5：作用域与全局变量
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../lab5/part8_task.html">
+            
+                <a href="../lab5/part8_task.html">
+            
+                    
+                    part8：作用域与块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../lab5/part9_task.html">
+            
+                <a href="../lab5/part9_task.html">
+            
+                    
+                    part⑨：全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../lab5/judge.html">
+            
+                <a href="../lab5/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../lab6/lab6.html">
+            
+                <a href="../lab6/lab6.html">
+            
+                    
+                    lab 6：循环
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../lab6/part10_task.html">
+            
+                <a href="../lab6/part10_task.html">
+            
+                    
+                    part10：循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../lab6/part11_task.html">
+            
+                <a href="../lab6/part11_task.html">
+            
+                    
+                    part11：continue、break 与代码回填
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../lab6/help.html">
+            
+                <a href="../lab6/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../lab6/judge.html">
+            
+                <a href="../lab6/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../lab7/lab7.html">
+            
+                <a href="../lab7/lab7.html">
+            
+                    
+                    lab 7：数组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../lab7/part12_task.html">
+            
+                <a href="../lab7/part12_task.html">
+            
+                    
+                    part12：一维数组、二维数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../lab7/help.html">
+            
+                <a href="../lab7/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../lab7/judge.html">
+            
+                <a href="../lab7/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../lab8/lab8.html">
+            
+                <a href="../lab8/lab8.html">
+            
+                    
+                    lab 8：函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../lab8/part13_task.html">
+            
+                <a href="../lab8/part13_task.html">
+            
+                    
+                    part13：函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../lab8/judge.html">
+            
+                <a href="../lab8/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../challenge/challenge.html">
+            
+                <a href="../challenge/challenge.html">
+            
+                    
+                    challenge：人类是有极限的，你不用全做
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" >
+            
+                <span>
+            
+                    
+                    case1：mem2reg
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1.1" data-path="../challenge/mem2reg/task.html">
+            
+                <a href="../challenge/mem2reg/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.1.2" data-path="../challenge/mem2reg/help.html">
+            
+                <a href="../challenge/mem2reg/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" >
+            
+                <span>
+            
+                    
+                    case2：多维数组
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.2.1" data-path="../challenge/multidimen/task.html">
+            
+                <a href="../challenge/multidimen/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" >
+            
+                <span>
+            
+                    
+                    case3：函数内联
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.3.1" data-path="../challenge/functionInline/task.html">
+            
+                <a href="../challenge/functionInline/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3.2" data-path="../challenge/functionInline/help.html">
+            
+                <a href="../challenge/functionInline/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" >
+            
+                <span>
+            
+                    
+                    case4：短路求值
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.4.1" data-path="../challenge/shortcircuit/task.html">
+            
+                <a href="../challenge/shortcircuit/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4.2" data-path="../challenge/shortcircuit/help.html">
+            
+                <a href="../challenge/shortcircuit/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    参考文献、致谢、示例编译器以及其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../ref.html">
+            
+                <a href="../ref.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../others.html">
+            
+                <a href="../others.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.3" data-path="../thanks.html">
+            
+                <a href="../thanks.html">
+            
+                    
+                    致谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.4" data-path="../example.html">
+            
+                <a href="../example.html">
+            
+                    
+                    示例编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >实验指导</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="lab-3-&#x5B9E;&#x9A8C;&#x6307;&#x5BFC;">Lab 3 &#x5B9E;&#x9A8C;&#x6307;&#x5BFC;</h1>
+<h2 id="&#x4E3A;&#x4EC0;&#x4E48;&#x793A;&#x4F8B;-ir-&#x4E2D;&#x4F7F;&#x7528;-alloca&#x3001;store-&#x548C;-load">&#x4E3A;&#x4EC0;&#x4E48;&#x793A;&#x4F8B; IR &#x4E2D;&#x4F7F;&#x7528; <code>alloca</code>&#x3001;<code>store</code> &#x548C; <code>load</code></h2>
+<p><a href="../pre/llvm_ir_ssa.html">LLVM IR SSA &#x4ECB;&#x7ECD;</a></p>
+<h2 id="&#x5728;&#x672C;&#x5730;&#x8C03;&#x8BD5;&#x5E26;&#x6709;&#x5E93;&#x51FD;&#x6570;&#x7684;-llvm-ir">&#x5728;&#x672C;&#x5730;&#x8C03;&#x8BD5;&#x5E26;&#x6709;&#x5E93;&#x51FD;&#x6570;&#x7684; LLVM IR</h2>
+<p><code>lli</code> &#x4EC5;&#x80FD;&#x8FD0;&#x884C;&#x5355;&#x4E2A; <code>.ll</code> &#x6587;&#x4EF6;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x4F7F;&#x7528;&#x522B;&#x7684;&#x5E93;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x7528;&#x5230; <code>llvm-link</code>&#x3002;</p>
+<p>&#x5728;&#x672C;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5F15;&#x5165;&#x4E86; <code>libsysy</code> &#x5E93;&#xFF08;&#x5728; <a href="https://github.com/BUAA-SE-Compiling/miniSysY-tutorial/blob/master/files/libsysy.zip" target="_blank">&#x8FD9;&#x91CC;</a> &#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF09;&#x4E3A;&#x6211;&#x4EEC;&#x7684;&#x7A0B;&#x5E8F;&#x63D0;&#x4F9B; IO &#x65B9;&#x9762;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">/* libsysy.c */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&quot;libsysy.h&quot;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token comment">/* Input &amp; output functions */</span>
+<span class="token keyword">int</span> <span class="token function">getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> t<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>t<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> t<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">getch</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">char</span> c<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%c&quot;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">)</span>c<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">int</span> <span class="token function">getarray</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> n<span class="token punctuation">;</span>
+    <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token function">scanf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span> <span class="token operator">&amp;</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">putint</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d&quot;</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">putch</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%c&quot;</span><span class="token punctuation">,</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token punctuation">}</span>
+<span class="token keyword">void</span> <span class="token function">putarray</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;%d:&quot;</span><span class="token punctuation">,</span> n<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> n<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+        <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot; %d&quot;</span><span class="token punctuation">,</span> a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">printf</span><span class="token punctuation">(</span><span class="token string">&quot;\n&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-c"><span class="token comment">/* libsysy.h */</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">ifndef</span> <span class="token expression">__SYLIB_H_</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">define</span> <span class="token macro-name">__SYLIB_H_</span></span>
+
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdarg.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;stdio.h&gt;</span></span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">include</span> <span class="token string">&lt;sys/time.h&gt;</span></span>
+<span class="token comment">/* Input &amp; output functions */</span>
+<span class="token keyword">int</span>  <span class="token function">getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getch</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">getarray</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">void</span> <span class="token function">putint</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">putch</span><span class="token punctuation">(</span><span class="token keyword">int</span> a<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">putarray</span><span class="token punctuation">(</span><span class="token keyword">int</span> n<span class="token punctuation">,</span> <span class="token keyword">int</span> a<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token macro property"><span class="token directive-hash">#</span><span class="token directive keyword">endif</span></span>
+</code></pre>
+<p>&#x4F60;&#x9700;&#x8981;&#x4F7F;&#x7528; <code>clang</code> &#x5C06; <code>libsysy.c</code> &#x7F16;&#x8BD1;&#x6210; <code>.ll</code> &#x6587;&#x4EF6;&#xFF0C;&#x7136;&#x540E;&#x4F7F;&#x7528; <code>llvm-link</code> &#x4E0E;&#x4F60;&#x60F3;&#x8981;&#x8FD0;&#x884C;&#x7684;&#x8C03;&#x7528; miniSysY &#x8FD0;&#x884C;&#x65F6;&#x5E93;&#x51FD;&#x6570;&#x7684; <code>.ll</code> &#x6587;&#x4EF6;&#x94FE;&#x63A5;&#xFF0C;&#x751F;&#x6210;&#x65B0;&#x7684; LLVM IR&#xFF0C;&#x518D;&#x4F7F;&#x7528; <code>lli</code> &#x89E3;&#x91CA;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token comment">; main.ll</span>
+<span class="token keyword">declare</span> <span class="token type class-name">i32</span> <span class="token variable">@getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">void</span> <span class="token variable">@putint</span><span class="token punctuation">(</span><span class="token type class-name">i32</span><span class="token punctuation">)</span>
+<span class="token keyword">define</span> <span class="token keyword">dso_local</span> <span class="token type class-name">i32</span> <span class="token variable">@main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+    <span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token variable">@getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%2</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%1</span>
+    <span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%1</span>
+    <span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">add</span> <span class="token type class-name">i32</span> <span class="token variable">%3</span><span class="token punctuation">,</span> <span class="token number">4</span>
+    <span class="token keyword">call</span> <span class="token type class-name">void</span> <span class="token variable">@putint</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%4</span><span class="token punctuation">)</span>
+    <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<pre class="language-"><code class="lang-shell">$ clang -emit-llvm -S libsysy.c -o lib.ll
+$ ./&#x4F60;&#x7684;&#x7F16;&#x8BD1;&#x5668; main.sy -o main.ll
+$ llvm-link main.ll lib.ll -S -o out.ll
+$ lli out.ll
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="part6_task.html" class="navigation navigation-prev " aria-label="Previous page: part6：调用函数">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="judge.html" class="navigation navigation-next " aria-label="Next page: 评测说明">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"实验指导","level":"1.10.3","depth":2,"next":{"title":"评测说明","level":"1.10.4","depth":2,"path":"lab3/judge.md","ref":"lab3/judge.md","articles":[]},"previous":{"title":"part6：调用函数","level":"1.10.2","depth":2,"path":"lab3/part6_task.md","ref":"lab3/part6_task.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","expandable-chapters","code","chapter-fold","splitter","github","-highlight","prism","prism-themes","theme-comscore","katex-pp"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prism-themes/themes/prism-synthwave84.css"]},"github":{"url":"https://github.com/BUAA-SE-Compiling/Slang-tutorial"},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"katex-pp":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"lab3/help.md","mtime":"2022-01-01T14:16:35.421Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-01T14:17:28.885Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+

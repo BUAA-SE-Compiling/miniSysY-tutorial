@@ -1,0 +1,1547 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>LLVM IR 快速上手 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search-pro/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-code/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-synthwave84.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-katex-pp/katex.min.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-theme-comscore/test.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="llvm_ir_ssa.html" />
+    
+    
+    <link rel="prev" href="llvm_tool_chain.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    实验简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../report.html">
+            
+                <a href="../report.html">
+            
+                    
+                    报告要求
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../integrity.html">
+            
+                <a href="../integrity.html">
+            
+                    
+                    诚信
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="llvm.html">
+            
+                <a href="llvm.html">
+            
+                    
+                    LLVM 相关内容
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="llvm_download.html">
+            
+                <a href="llvm_download.html">
+            
+                    
+                    LLVM 工具链下载
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="llvm_tool_chain.html">
+            
+                <a href="llvm_tool_chain.html">
+            
+                    
+                    LLVM 工具链介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="llvm_ir_quick_primer.html">
+            
+                <a href="llvm_ir_quick_primer.html">
+            
+                    
+                    LLVM IR 快速上手
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="llvm_ir_ssa.html">
+            
+                <a href="llvm_ir_ssa.html">
+            
+                    
+                    LLVM IR SSA 介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="design_hints.html">
+            
+                <a href="design_hints.html">
+            
+                    
+                    LLVM 架构中最重要的概念，以及编译器设计的提示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="suggested_insts.html">
+            
+                <a href="suggested_insts.html">
+            
+                    
+                    推荐指令
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="pre.html">
+            
+                <a href="pre.html">
+            
+                    
+                    pre
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="generator/generator.html">
+            
+                <a href="generator/generator.html">
+            
+                    
+                    （阅读）flex/bison/ANTLR
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1.1" data-path="generator/flex.html">
+            
+                <a href="generator/flex.html">
+            
+                    
+                    flex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.2" data-path="generator/bison.html">
+            
+                <a href="generator/bison.html">
+            
+                    
+                    bison
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.1.3" data-path="generator/ANTLR.html">
+            
+                <a href="generator/ANTLR.html">
+            
+                    
+                    ANTLR
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="judge.html">
+            
+                <a href="judge.html">
+            
+                    
+                    （阅读）评测机食用指北
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="lab_lexer.html">
+            
+                <a href="lab_lexer.html">
+            
+                    
+                    （实验）词法分析小实验
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../miniSysY.html">
+            
+                <a href="../miniSysY.html">
+            
+                    
+                    剩下的旅程：miniSysY
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../lab1/compiler_structure.html">
+            
+                <a href="../lab1/compiler_structure.html">
+            
+                    
+                    编译过程概述
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../lab1/lab1.html">
+            
+                <a href="../lab1/lab1.html">
+            
+                    
+                    lab 1：main 与注释
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../lab1/part1_task.html">
+            
+                <a href="../lab1/part1_task.html">
+            
+                    
+                    part1：仅有 main 函数与 return 的编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../lab1/part2_task.html">
+            
+                <a href="../lab1/part2_task.html">
+            
+                    
+                    part2：消除注释
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../lab1/help.html">
+            
+                <a href="../lab1/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../lab1/judge.html">
+            
+                <a href="../lab1/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../lab2/lab2.html">
+            
+                <a href="../lab2/lab2.html">
+            
+                    
+                    lab 2：常量表达式
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../lab2/part3_task.html">
+            
+                <a href="../lab2/part3_task.html">
+            
+                    
+                    part3：实现正号、负号
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../lab2/part4_task.html">
+            
+                <a href="../lab2/part4_task.html">
+            
+                    
+                    part4：实现四则运算及模运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../lab2/help.html">
+            
+                <a href="../lab2/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../lab2/judge.html">
+            
+                <a href="../lab2/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../lab3/lab3.html">
+            
+                <a href="../lab3/lab3.html">
+            
+                    
+                    lab 3：局部变量
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../lab3/part5_task.html">
+            
+                <a href="../lab3/part5_task.html">
+            
+                    
+                    part5：局部变量与赋值
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../lab3/part6_task.html">
+            
+                <a href="../lab3/part6_task.html">
+            
+                    
+                    part6：调用函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../lab3/help.html">
+            
+                <a href="../lab3/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../lab3/judge.html">
+            
+                <a href="../lab3/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../lab4/lab4.html">
+            
+                <a href="../lab4/lab4.html">
+            
+                    
+                    lab 4：条件语句
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../lab4/part7_task.html">
+            
+                <a href="../lab4/part7_task.html">
+            
+                    
+                    part7：if 语句与条件表达式
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.2" data-path="../lab4/help.html">
+            
+                <a href="../lab4/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.3" data-path="../lab4/judge.html">
+            
+                <a href="../lab4/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../lab5/lab5.html">
+            
+                <a href="../lab5/lab5.html">
+            
+                    
+                    lab 5：作用域与全局变量
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../lab5/part8_task.html">
+            
+                <a href="../lab5/part8_task.html">
+            
+                    
+                    part8：作用域与块
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../lab5/part9_task.html">
+            
+                <a href="../lab5/part9_task.html">
+            
+                    
+                    part⑨：全局变量
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.3" data-path="../lab5/judge.html">
+            
+                <a href="../lab5/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" data-path="../lab6/lab6.html">
+            
+                <a href="../lab6/lab6.html">
+            
+                    
+                    lab 6：循环
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../lab6/part10_task.html">
+            
+                <a href="../lab6/part10_task.html">
+            
+                    
+                    part10：循环语句
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../lab6/part11_task.html">
+            
+                <a href="../lab6/part11_task.html">
+            
+                    
+                    part11：continue、break 与代码回填
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.3" data-path="../lab6/help.html">
+            
+                <a href="../lab6/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.4" data-path="../lab6/judge.html">
+            
+                <a href="../lab6/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14" data-path="../lab7/lab7.html">
+            
+                <a href="../lab7/lab7.html">
+            
+                    
+                    lab 7：数组
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.14.1" data-path="../lab7/part12_task.html">
+            
+                <a href="../lab7/part12_task.html">
+            
+                    
+                    part12：一维数组、二维数组
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.2" data-path="../lab7/help.html">
+            
+                <a href="../lab7/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.14.3" data-path="../lab7/judge.html">
+            
+                <a href="../lab7/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15" data-path="../lab8/lab8.html">
+            
+                <a href="../lab8/lab8.html">
+            
+                    
+                    lab 8：函数
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.15.1" data-path="../lab8/part13_task.html">
+            
+                <a href="../lab8/part13_task.html">
+            
+                    
+                    part13：函数
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.15.2" data-path="../lab8/judge.html">
+            
+                <a href="../lab8/judge.html">
+            
+                    
+                    评测说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16" data-path="../challenge/challenge.html">
+            
+                <a href="../challenge/challenge.html">
+            
+                    
+                    challenge：人类是有极限的，你不用全做
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1" >
+            
+                <span>
+            
+                    
+                    case1：mem2reg
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.1.1" data-path="../challenge/mem2reg/task.html">
+            
+                <a href="../challenge/mem2reg/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.1.2" data-path="../challenge/mem2reg/help.html">
+            
+                <a href="../challenge/mem2reg/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.2" >
+            
+                <span>
+            
+                    
+                    case2：多维数组
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.2.1" data-path="../challenge/multidimen/task.html">
+            
+                <a href="../challenge/multidimen/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3" >
+            
+                <span>
+            
+                    
+                    case3：函数内联
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.3.1" data-path="../challenge/functionInline/task.html">
+            
+                <a href="../challenge/functionInline/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.3.2" data-path="../challenge/functionInline/help.html">
+            
+                <a href="../challenge/functionInline/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4" >
+            
+                <span>
+            
+                    
+                    case4：短路求值
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.16.4.1" data-path="../challenge/shortcircuit/task.html">
+            
+                <a href="../challenge/shortcircuit/task.html">
+            
+                    
+                    任务简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.16.4.2" data-path="../challenge/shortcircuit/help.html">
+            
+                <a href="../challenge/shortcircuit/help.html">
+            
+                    
+                    实验指导
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17" >
+            
+                <span>
+            
+                    
+                    参考文献、致谢、示例编译器以及其他
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.17.1" data-path="../ref.html">
+            
+                <a href="../ref.html">
+            
+                    
+                    参考文献
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.2" data-path="../others.html">
+            
+                <a href="../others.html">
+            
+                    
+                    其他
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.3" data-path="../thanks.html">
+            
+                <a href="../thanks.html">
+            
+                    
+                    致谢
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.17.4" data-path="../example.html">
+            
+                <a href="../example.html">
+            
+                    
+                    示例编译器
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >LLVM IR 快速上手</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="llvm-ir-&#x5FEB;&#x901F;&#x4E0A;&#x624B;">LLVM IR &#x5FEB;&#x901F;&#x4E0A;&#x624B;</h1>
+<h2 id="&#x5199;&#x5728;&#x524D;&#x9762;">&#x5199;&#x5728;&#x524D;&#x9762;</h2>
+<p>&#x672C;&#x8282;&#x9ED8;&#x8BA4;&#x4F60;&#x5DF2;&#x7ECF;&#x770B;&#x8FC7;&#x4E86;<a href="llvm_download.html">LLVM &#x5DE5;&#x5177;&#x94FE;&#x4E0B;&#x8F7D;</a>&#x4EE5;&#x53CA;<a href="llvm_tool_chain.md.md">LLVM &#x5DE5;&#x5177;&#x94FE;&#x4ECB;&#x7ECD;</a>&#x4E24;&#x8282;&#x7684;&#x5185;&#x5BB9;</p>
+<p><strong>&#x5982;&#x679C;&#x4F60;&#x5BF9; LLVM IR &#x6BD4;&#x8F83;&#x719F;&#x6089;&#xFF0C;&#x53EF;&#x4EE5;&#x8DF3;&#x8FC7;&#x672C;&#x8282;</strong></p>
+<p>&#x672C;&#x8282;&#x7684;&#x5185;&#x5BB9;&#x8F83;&#x591A;&#x8F83;&#x96BE;&#xFF0C;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x591A;&#x770B;&#x51E0;&#x904D;&#x624D;&#x80FD;&#x6D88;&#x5316;&#x3002;&#x7531;&#x4E8E;&#x672C;&#x8282;&#x7BC7;&#x5E45;&#x8F83;&#x957F;&#x4E14;&#x52A9;&#x6559;&#x7CBE;&#x529B;&#x6709;&#x9650;&#xFF0C;&#x90E8;&#x5206;&#x5730;&#x65B9;&#x53EF;&#x80FD;&#x8BB2;&#x5F97;&#x4E0D;&#x5168;&#x9762;&#x6216;&#x5B58;&#x5728;&#x9519;&#x8BEF;&#xFF0C;&#x5B9E;&#x9645;&#x4EE5; <a href="https://llvm.org/docs/LangRef.html" target="_blank">LLVM Lang Ref</a> &#x4EE5;&#x53CA; <a href="https://llvm.org/docs/ProgrammersManual.html#the-core-llvm-class-hierarchy-reference" target="_blank">LLVM Programmer Manual</a> &#x4E3A;&#x51C6;&#x3002;</p>
+<h2 id="llvm-ir-&#x7B80;&#x4ECB;">LLVM IR &#x7B80;&#x4ECB;</h2>
+<p>&#x5728;&#x5F00;&#x53D1;&#x7F16;&#x8BD1;&#x5668;&#x65F6;&#xFF0C;&#x901A;&#x5E38;&#x7684;&#x505A;&#x6CD5;&#x662F;&#x5C06;&#x6E90;&#x4EE3;&#x7801;&#x7F16;&#x8BD1;&#x5230;&#x67D0;&#x79CD;&#x4E2D;&#x95F4;&#x8868;&#x793A;&#xFF08;Intermediate Representation&#xFF0C;&#x4E00;&#x822C;&#x79F0;&#x4E3A; IR&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06; IR &#x7FFB;&#x8BD1;&#x4E3A;&#x76EE;&#x6807;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x6C47;&#x7F16;&#xFF08;&#x6BD4;&#x5982; MIPS &#x6216; X86&#xFF09;&#xFF0C;&#x8FD9;&#x79CD;&#x505A;&#x6CD5;&#x76F8;&#x5BF9;&#x4E8E;&#x76F4;&#x63A5;&#x5C06;&#x6E90;&#x4EE3;&#x7801;&#x7FFB;&#x8BD1;&#x4E3A;&#x76EE;&#x6807;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x597D;&#x5904;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x4E2A;&#xFF1A;</p>
+<ul>
+<li><p>&#x9996;&#x5148;&#xFF0C;&#x6709;&#x4E00;&#x4E9B;&#x4F18;&#x5316;&#x6280;&#x672F;&#x662F;&#x76EE;&#x6807;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x7684;&#xFF08;&#x4F8B;&#x5982;&#x4F5C;&#x4E3A;&#x6211;&#x4EEC;&#x5B9E;&#x9A8C;&#x6311;&#x6218;&#x4EFB;&#x52A1;&#x7684;&#x6B7B;&#x4EE3;&#x7801;&#x5220;&#x9664;&#x548C;&#x5E38;&#x91CF;&#x6298;&#x53E0;&#xFF09;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5728; IR &#x4E0A;&#x505A;&#x8FD9;&#x4E9B;&#x4F18;&#x5316;&#xFF0C;&#x518D;&#x7FFB;&#x8BD1;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x6C47;&#x7F16;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x591F;&#x5728;&#x6240;&#x6709;&#x652F;&#x6301;&#x7684;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x4E0A;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x4F18;&#x5316;&#xFF0C;&#x8FD9;&#x5927;&#x5927;&#x7684;&#x51CF;&#x5C11;&#x4E86;&#x5F00;&#x53D1;&#x7684;&#x5DE5;&#x4F5C;&#x91CF;&#x3002;</p>
+</li>
+<li><p>&#x5176;&#x6B21;&#xFF0C;&#x5047;&#x8BBE;&#x6211;&#x4EEC;&#x6709; <code>m</code> &#x79CD;&#x6E90;&#x8BED;&#x8A00;&#x548C; <code>n</code> &#x79CD;&#x76EE;&#x6807;&#x5E73;&#x53F0;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x76F4;&#x63A5;&#x5C06;&#x6E90;&#x4EE3;&#x7801;&#x7FFB;&#x8BD1;&#x4E3A;&#x76EE;&#x6807;&#x5E73;&#x53F0;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x7F16;&#x5199; <code>m * n</code> &#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x3002;&#x7136;&#x800C;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x91C7;&#x7528;&#x4E00;&#x79CD; IR &#x4F5C;&#x4E3A;&#x4E2D;&#x8F6C;&#xFF0C;&#x5148;&#x5C06;&#x6E90;&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x5230;&#x8FD9;&#x79CD; IR &#xFF0C;&#x518D;&#x5C06;&#x8FD9;&#x79CD; IR &#x7FFB;&#x8BD1;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x76EE;&#x6807;&#x5E73;&#x53F0;&#x4E0A;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x5C31;&#x53EA;&#x9700;&#x8981;&#x5B9E;&#x73B0; <code>m + n</code> &#x4E2A;&#x7F16;&#x8BD1;&#x5668;&#x3002;</p>
+</li>
+</ul>
+<p>&#x56E0;&#x6B64;&#xFF0C;&#x76EE;&#x524D;&#x5E38;&#x89C1;&#x7684;&#x7F16;&#x8BD1;&#x5668;&#x90FD;&#x5206;&#x4E3A;&#x4E86;&#x4E09;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x524D;&#x7AEF;&#xFF08;front-end&#xFF09;&#xFF0C;&#x4E2D;&#x7AEF;&#xFF08;middle-end&#xFF09;&#x4EE5;&#x53CA;&#x540E;&#x7AEF;&#xFF08;back-end&#xFF09;&#xFF0C;&#x6BCF;&#x4E00;&#x90E8;&#x5206;&#x90FD;&#x627F;&#x62C5;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x529F;&#x80FD;&#xFF1A;</p>
+<ul>
+<li>&#x524D;&#x7AEF;&#xFF1A;&#x5C06;&#x6E90;&#x8BED;&#x8A00;&#x7F16;&#x8BD1;&#x5230; IR</li>
+<li>&#x4E2D;&#x7AEF;&#xFF1A;&#x5BF9; IR &#x8FDB;&#x884C;&#x4F18;&#x5316;</li>
+<li>&#x540E;&#x7AEF;&#xFF1A;&#x5C06; IR &#x7FFB;&#x8BD1;&#x4E3A;&#x76EE;&#x6807;&#x8BED;&#x8A00;</li>
+</ul>
+<p>&#x540C;&#x7406;&#xFF0C;LLVM &#x4E5F;&#x662F;&#x6309;&#x7167;&#x8FD9;&#x4E00;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x3002;</p>
+<p><img src="../pic/llvm_compiler_pipeline.png" alt=""></p>
+<p>LLVM IR &#x5177;&#x6709;&#x4E09;&#x79CD;&#x8868;&#x793A;&#x5F62;&#x5F0F;&#xFF0C;&#x8FD9;&#x4E09;&#x79CD;&#x4E2D;&#x95F4;&#x683C;&#x5F0F;&#x662F;&#x5B8C;&#x5168;&#x7B49;&#x4EF7;&#x7684;&#xFF1A;</p>
+<ul>
+<li>&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x7684;&#x7F16;&#x8BD1;&#x4E2D;&#x95F4;&#x8BED;&#x8A00;&#xFF08;&#x6211;&#x4EEC;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x6587;&#x4EF6;&#x7684;&#x5F62;&#x5F0F;&#x5F97;&#x5230;&#xFF09;</li>
+<li>&#x5728;&#x786C;&#x76D8;&#x4E0A;&#x5B58;&#x50A8;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x4E2D;&#x95F4;&#x8BED;&#x8A00;&#xFF08;&#x683C;&#x5F0F;&#x4E3A; <code>.bc</code>&#xFF09;</li>
+<li>&#x4EBA;&#x7C7B;&#x53EF;&#x8BFB;&#x7684;&#x4EE3;&#x7801;&#x8BED;&#x8A00;&#xFF08;&#x683C;&#x5F0F;&#x4E3A; <code>.ll</code>&#xFF09;</li>
+</ul>
+<p>&#x672C;&#x6B21;&#x5B9E;&#x9A8C;&#x8981;&#x6C42;&#x8F93;&#x51FA; <code>.ll</code> &#x5F62;&#x5F0F;&#x7684; LLVM IR&#x3002;</p>
+<h2 id="llvm-ir-&#x793A;&#x4F8B;&#x7A0B;&#x5E8F;">LLVM IR &#x793A;&#x4F8B;&#x7A0B;&#x5E8F;</h2>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x5C0F;&#x793A;&#x4F8B;&#x6765;&#x5FEB;&#x901F;&#x719F;&#x6089; LLVM IR &#x7684;&#x4E00;&#x4E9B;&#x7279;&#x6027;&#x3002;&#x5728;&#x5B66;&#x4E60;&#x8FD9;&#x90E8;&#x5206;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x548C;&#x63A8;&#x8350;&#x7684; LLVM IR &#x6307;&#x4EE4; &#x4E00;&#x8282;&#x5BF9;&#x7167;&#x3002;</p>
+<p>&#x5728;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x4EFB;&#x52A1;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x751F;&#x6210;&#x4E0B;&#x9762;&#x8FD9;&#x4E2A; C &#x7A0B;&#x5E8F;&#x7684; <code>.ll</code> &#x5F62;&#x5F0F; LLVM IR&#xFF1A;</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">// main.c</span>
+<span class="token keyword">int</span> <span class="token function">foo</span><span class="token punctuation">(</span><span class="token keyword">int</span> first<span class="token punctuation">,</span> <span class="token keyword">int</span> second<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> first <span class="token operator">+</span> second<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token number">4</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token function">foo</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6211;&#x4EEC;&#x5728;&#x547D;&#x4EE4;&#x884C;&#x4E2D;&#x8F93;&#x5165; <code>clang -emit-llvm -S main.c -o main.ll -O0</code>&#xFF08;&#x5982;&#x679C;&#x4F60;&#x8FD8;&#x4E0D;&#x77E5;&#x9053;&#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4E2D;&#x5404;&#x4E2A;&#x9009;&#x9879;&#x7684;&#x542B;&#x4E49;&#xFF0C;&#x8BF7;&#x5148;&#x53BB;&#x770B;&#x300C;LLVM &#x76F8;&#x5173;&#x5DE5;&#x5177;&#x94FE;&#x4E0B;&#x8F7D;&#x300D;&#x4E00;&#x8282;&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x6253;&#x5F00;&#x540C;&#x76EE;&#x5F55;&#x4E0B;&#x7684; <code>main.ll</code> &#x6587;&#x4EF6;&#xFF0C;&#x4F1A;&#x770B;&#x5230;&#x751F;&#x6210;&#x7684;&#x5185;&#x5BB9;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token comment">; ModuleID = &apos;main.c&apos;</span>
+<span class="token keyword">source_filename</span> <span class="token punctuation">=</span> <span class="token string">&quot;main.c&quot;</span>
+<span class="token keyword">target</span> <span class="token keyword">datalayout</span> <span class="token punctuation">=</span> <span class="token string">&quot;e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-f80:128-n8:16:32:64-S128&quot;</span>
+<span class="token keyword">target</span> <span class="token keyword">triple</span> <span class="token punctuation">=</span> <span class="token string">&quot;x86_64-pc-linux-gnu&quot;</span>
+
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">dso_local</span> <span class="token keyword">global</span> <span class="token type class-name">i32</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+
+<span class="token comment">; Function Attrs: noinline nounwind optnone sspstrong uwtable</span>
+<span class="token keyword">define</span> <span class="token keyword">dso_local</span> <span class="token type class-name">i32</span> <span class="token variable">@foo</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%1</span><span class="token punctuation">)</span> <span class="token variable">#0</span> <span class="token punctuation">{</span>
+  <span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%5</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%6</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%7</span> <span class="token punctuation">=</span> <span class="token keyword">add</span> <span class="token keyword">nsw</span> <span class="token type class-name">i32</span> <span class="token variable">%5</span><span class="token punctuation">,</span> <span class="token variable">%6</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%7</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">; Function Attrs: noinline nounwind optnone sspstrong uwtable</span>
+<span class="token keyword">define</span> <span class="token keyword">dso_local</span> <span class="token type class-name">i32</span> <span class="token variable">@main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token variable">#0</span> <span class="token punctuation">{</span>
+  <span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%2</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">@a</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%2</span><span class="token punctuation">,</span> <span class="token keyword">align</span> <span class="token number">4</span>
+  <span class="token variable">%5</span> <span class="token punctuation">=</span> <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token variable">@foo</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%3</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%4</span><span class="token punctuation">)</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%5</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">attributes</span> <span class="token variable">#0</span> <span class="token punctuation">=</span> <span class="token punctuation">{</span> <span class="token keyword">noinline</span> <span class="token keyword">nounwind</span> <span class="token keyword">optnone</span> <span class="token keyword">sspstrong</span> <span class="token keyword">uwtable</span> <span class="token string">&quot;disable-tail-calls&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;frame-pointer&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;all&quot;</span> <span class="token string">&quot;less-precise-fpmad&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;min-legal-vector-width&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;0&quot;</span> <span class="token string">&quot;no-infs-fp-math&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;no-jump-tables&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;no-nans-fp-math&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;no-signed-zeros-fp-math&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;no-trapping-math&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;true&quot;</span> <span class="token string">&quot;stack-protector-buffer-size&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;8&quot;</span> <span class="token string">&quot;target-cpu&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;x86-64&quot;</span> <span class="token string">&quot;target-features&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;+cx8,+fxsr,+mmx,+sse,+sse2,+x87&quot;</span> <span class="token string">&quot;tune-cpu&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;generic&quot;</span> <span class="token string">&quot;unsafe-fp-math&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token string">&quot;use-soft-float&quot;</span><span class="token punctuation">=</span><span class="token string">&quot;false&quot;</span> <span class="token punctuation">}</span>
+
+<span class="token variable">!llvm.module.flags</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token variable">!0</span><span class="token punctuation">,</span> <span class="token variable">!1</span><span class="token punctuation">,</span> <span class="token variable">!2</span><span class="token punctuation">}</span>
+<span class="token variable">!llvm.ident</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token variable">!3</span><span class="token punctuation">}</span>
+
+<span class="token variable">!0</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token type class-name">i32</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token punctuation">!</span><span class="token string">&quot;wchar_size&quot;</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">4</span><span class="token punctuation">}</span>
+<span class="token variable">!1</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token type class-name">i32</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">!</span><span class="token string">&quot;PIC Level&quot;</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">2</span><span class="token punctuation">}</span>
+<span class="token variable">!2</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token type class-name">i32</span> <span class="token number">7</span><span class="token punctuation">,</span> <span class="token punctuation">!</span><span class="token string">&quot;PIE Level&quot;</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token number">2</span><span class="token punctuation">}</span>
+<span class="token variable">!3</span> <span class="token punctuation">=</span> <span class="token punctuation">!</span><span class="token punctuation">{</span><span class="token punctuation">!</span><span class="token string">&quot;clang version 12.0.1&quot;</span><span class="token punctuation">}</span>
+</code></pre>
+<p>&#x6839;&#x636E;&#x4E2A;&#x4EBA;&#x4F7F;&#x7528;&#x7684;&#x786C;&#x4EF6;&#x4E0E;&#x7CFB;&#x7EDF;&#x4E0D;&#x540C;&#xFF0C;&#x90E8;&#x5206;&#x5185;&#x5BB9;&#x4F1A;&#x51FA;&#x73B0;&#x8F83;&#x5C0F;&#x533A;&#x522B;&#xFF0C;&#x4F8B;&#x5982; <code>target triple</code> &#x4E0E; <code>target datalayout</code> &#x662F;&#x7A0B;&#x5E8F;&#x7684;&#x6807;&#x7B7E;&#x5C5E;&#x6027;&#x8BF4;&#x660E;&#xFF0C;&#x5728;&#x6211;&#x4EEC;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#x5E76;&#x4E0D;&#x8981;&#x6C42;&#x751F;&#x6210;&#x5B83;&#x4EEC;&#xFF1B;<code>align</code> &#x5B57;&#x6BB5;&#x63CF;&#x8FF0;&#x4E86;&#x7A0B;&#x5E8F;&#x7684;&#x5BF9;&#x9F50;&#x5C5E;&#x6027;&#xFF1B;<code>dso_local</code> &#x662F;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#x7684;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x62A2;&#x5360;&#x8BF4;&#x660E;&#x7B26;&#xFF1B;&#x4EE5; <code>;</code> &#x5F00;&#x5934;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x662F; LLVM IR &#x7684;&#x6CE8;&#x91CA;&#xFF08;&#x8FD9;&#x4E2A;&#x6700;&#x597D;&#x8BB0;&#x4F4F;&#xFF09;&#x2026;&#x2026;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x5728;&#x672C;&#x5B9E;&#x9A8C;&#x91CC;&#x4E5F;&#x4E0D;&#x8981;&#x6C42;&#x751F;&#x6210;&#x3002;</p>
+<p>&#x5C06;&#x4E0A;&#x9762;&#x8C08;&#x5230;&#x7684;&#x5185;&#x5BB9;&#x90FD;&#x5220;&#x9664;&#x4EE5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x7684; <code>.ll</code> &#x6587;&#x4EF6;&#x4F9D;&#x7136;&#x662F;&#x7B26;&#x5408;&#x683C;&#x5F0F;&#x7684;&#x3002;&#x6211;&#x4EEC;&#x5C06;&#x65E0;&#x7528;&#x7684;&#x8BED;&#x53E5;&#x5220;&#x53BB;&#x540E;&#xFF0C;&#x5C31;&#x53EA;&#x7559;&#x4E0B;&#x4E86;&#x9700;&#x8981;&#x5173;&#x6CE8;&#x7684;&#x6B63;&#x6587;&#x5185;&#x5BB9;&#x3002;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x540C;&#x5B66;&#x7684;&#x7406;&#x89E3;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x52A0;&#x4E0A;&#x4E86;&#x76F8;&#x5173;&#x7684;&#x6CE8;&#x91CA;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token comment">; &#x6240;&#x6709;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x90FD;&#x4EE5; @ &#x4E3A;&#x524D;&#x7F00;&#xFF0C;&#x540E;&#x9762;&#x7684; global &#x5173;&#x952E;&#x5B57;&#x8868;&#x660E;&#x4E86;&#x5B83;&#x662F;&#x4E00;&#x4E2A;&#x5168;&#x5C40;&#x53D8;&#x91CF;</span>
+<span class="token variable">@a</span> <span class="token punctuation">=</span> <span class="token keyword">global</span> <span class="token type class-name">i32</span> <span class="token number">5</span> <span class="token comment">; &#x6CE8;&#x610F;&#xFF0C;@a &#x7684;&#x7C7B;&#x578B;&#x662F; i32* &#xFF0C;&#x540E;&#x9762;&#x4F1A;&#x8BE6;&#x7EC6;&#x8BF4;&#x660E;</span>
+
+<span class="token comment">; &#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4EE5; `define` &#x5F00;&#x5934;&#xFF0C;i32 &#x6807;&#x660E;&#x4E86;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#xFF0C;&#x5176;&#x4E2D; `foo`&#x662F;&#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57;&#xFF0C;`@` &#x662F;&#x5176;&#x524D;&#x7F00;</span>
+<span class="token comment">; &#x51FD;&#x6570;&#x53C2;&#x6570; (i32 %0, i32 %1) &#x5206;&#x522B;&#x6807;&#x660E;&#x4E86;&#x5176;&#x7B2C;&#x4E00;&#x3001;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x4EE5;&#x53CA;&#x4ED6;&#x4EEC;&#x7684;&#x540D;&#x5B57;</span>
+<span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@foo</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%1</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span> <span class="token comment">; &#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x540D;&#x5B57;&#x662F; %0&#xFF0C;&#x7C7B;&#x578B;&#x662F; i32&#xFF1B;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x7684;&#x540D;&#x5B57;&#x662F; %1&#xFF0C;&#x7C7B;&#x578B;&#x662F; i32&#x3002;</span>
+  <span class="token comment">; &#x4EE5; % &#x5F00;&#x5934;&#x7684;&#x7B26;&#x53F7;&#x8868;&#x793A;&#x865A;&#x62DF;&#x5BC4;&#x5B58;&#x5668;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x5B83;&#x5F53;&#x4F5C;&#x4E00;&#x4E2A;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF08;&#x4E0E;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x76F8;&#x533A;&#x5206;&#xFF09;&#xFF0C;&#x6216;&#x79F0;&#x4E4B;&#x4E3A;&#x4E34;&#x65F6;&#x5BC4;&#x5B58;&#x5668;</span>
+  <span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span> <span class="token comment">; &#x4E3A; %3 &#x5206;&#x914D;&#x7A7A;&#x95F4;&#xFF0C;&#x5176;&#x5927;&#x5C0F;&#x4E0E;&#x4E00;&#x4E2A; i32 &#x7C7B;&#x578B;&#x7684;&#x5927;&#x5C0F;&#x76F8;&#x540C;&#x3002;%3 &#x7C7B;&#x578B;&#x5373;&#x4E3A; i32*</span>
+  <span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span> <span class="token comment">; &#x540C;&#x7406;&#xFF0C;%4 &#x7C7B;&#x578B;&#x4E3A; i32*</span>
+
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span> <span class="token comment">; &#x5C06; %0&#xFF08;i32&#xFF09;&#x5B58;&#x5165; %3&#xFF08;i32*&#xFF09;</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%1</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span> <span class="token comment">; &#x5C06; %1&#xFF08;i32&#xFF09;&#x5B58;&#x5165; %4&#xFF08;i32*&#xFF09;</span>
+
+  <span class="token variable">%5</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span> <span class="token comment">; &#x4ECE; %3&#xFF08;i32*&#xFF09;&#x4E2D; load &#x51FA;&#x4E00;&#x4E2A;&#x503C;&#xFF08;&#x7C7B;&#x578B;&#x4E3A; i32&#xFF09;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x7684;&#x540D;&#x5B57;&#x4E3A; %5</span>
+  <span class="token variable">%6</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span> <span class="token comment">; &#x540C;&#x7406;&#xFF0C;&#x4ECE; %4&#xFF08;i32*&#xFF09; &#x4E2D; load &#x51FA;&#x4E00;&#x4E2A;&#x503C;&#x7ED9; %6&#xFF08;i32&#xFF09;</span>
+
+  <span class="token variable">%7</span> <span class="token punctuation">=</span> <span class="token keyword">add</span> <span class="token keyword">nsw</span> <span class="token type class-name">i32</span> <span class="token variable">%5</span><span class="token punctuation">,</span> <span class="token variable">%6</span> <span class="token comment">; &#x5C06; %5&#xFF08;i32&#xFF09; &#x4E0E; %6&#xFF08;i32&#xFF09;&#x76F8;&#x52A0;&#xFF0C;&#x5176;&#x548C;&#x7684;&#x540D;&#x5B57;&#x4E3A; %7&#x3002;nsw &#x662F; &quot;No Signed Wrap&quot; &#x7684;&#x7F29;&#x5199;&#xFF0C;&#x8868;&#x793A;&#x65E0;&#x7B26;&#x53F7;&#x503C;&#x8FD0;&#x7B97;</span>
+
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%7</span> <span class="token comment">; &#x8FD4;&#x56DE; %7&#xFF08;i32&#xFF09;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">; &#x6CE8;&#x610F;&#xFF0C;&#x4E0B;&#x9762;&#x51FA;&#x73B0;&#x7684; %1&#xFF0C;%2&#x2026;&#x2026;&#x4E0E;&#x4E0A;&#x9762;&#x7684;&#x65E0;&#x5173;&#xFF0C;&#x5373;&#x6BCF;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x4E34;&#x65F6;&#x5BC4;&#x5B58;&#x5668;&#x662F;&#x72EC;&#x7ACB;&#x7684;</span>
+  <span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+  <span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%1</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%2</span>
+
+  <span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">@a</span>
+  <span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%2</span>
+
+  <span class="token comment">; &#x8C03;&#x7528;&#x51FD;&#x6570; @foo &#xFF0C;i32 &#x8868;&#x793A;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;</span>
+  <span class="token comment">; &#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F; %3&#xFF08;i32&#xFF09;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F; %4&#xFF08;i32&#xFF09;&#xFF0C;&#x7ED9;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x547D;&#x540D;&#x4E3A; %5</span>
+  <span class="token variable">%5</span> <span class="token punctuation">=</span> <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token variable">@foo</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%3</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span> <span class="token variable">%4</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token variable">%5</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x867D;&#x7136;&#x4E0A;&#x9762;&#x8FD9;&#x4E2A;&#x6587;&#x4EF6;&#x5E76;&#x6CA1;&#x6709;&#x5305;&#x542B;&#x672C;&#x5B9E;&#x9A8C;&#x4E2D;&#x53EF;&#x80FD;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x6240;&#x6709;&#x7279;&#x6027;&#x4E0E;&#x6307;&#x4EE4;&#xFF0C;&#x4F46;&#x662F;&#x5DF2;&#x7ECF;&#x5C55;&#x73B0;&#x51FA;&#x4E86;&#x5F88;&#x591A;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x5730;&#x65B9;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<ul>
+<li>&#x6CE8;&#x91CA;&#x4EE5; <code>;</code> &#x5F00;&#x5934;</li>
+<li>LLVM IR &#x662F;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x7684;&#xFF08;&#x5373;&#x5728;&#x7F16;&#x5199;&#x65F6;&#x6BCF;&#x4E2A;&#x503C;&#x90FD;&#x6709;&#x660E;&#x786E;&#x7684;&#x7C7B;&#x578B;&#xFF09;</li>
+<li>&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7684;&#x4F5C;&#x7528;&#x57DF;&#x662F;&#x5355;&#x4E2A;&#x51FD;&#x6570;&#xFF08;&#x6BD4;&#x5982; <code>@main</code> &#x4E2D;&#x7684; <code>%1</code> &#x662F;&#x4E00;&#x4E2A; <code>i32*</code> &#x7C7B;&#x578B;&#x7684;&#x5730;&#x5740;&#xFF0C;&#x800C; <code>@foo</code> &#x4E2D;&#x7684; <code>%1</code> &#x662F;&#x4E00;&#x4E2A; <code>i32</code> &#x7C7B;&#x578B;&#x7684;&#x503C;&#xFF09;</li>
+<li>&#x4E34;&#x65F6;&#x5BC4;&#x5B58;&#x5668;&#xFF08;&#x6216;&#x8005;&#x8BF4;&#x4E34;&#x65F6;&#x53D8;&#x91CF;&#xFF09;&#x62E5;&#x6709;&#x5347;&#x5E8F;&#x7684;&#x540D;&#x5B57;&#xFF08;&#x6BD4;&#x5982; <code>@main</code> &#x51FD;&#x6570;&#x4E2D;&#x7684; <code>%1</code>&#xFF0C;<code>%2</code>&#xFF0C;<code>%3</code>&#xFF09;</li>
+<li>&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E0E;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x7531;&#x524D;&#x7F00;&#x533A;&#x5206;&#xFF0C;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x548C;&#x51FD;&#x6570;&#x540D;&#x4EE5; <code>@</code> &#x4E3A;&#x524D;&#x7F00;&#xFF0C;&#x5C40;&#x90E8;&#x53D8;&#x91CF;&#x4EE5; <code>%</code> &#x4E3A;&#x524D;&#x7F00;</li>
+<li>&#x5927;&#x591A;&#x6570;&#x6307;&#x4EE4;&#x4E0E;&#x5B57;&#x9762;&#x542B;&#x4E49;&#x76F8;&#x540C;&#xFF08;<code>alloca</code> &#x5206;&#x914D;&#x5185;&#x5B58;&#x5E76;&#x8FD4;&#x56DE;&#x5730;&#x5740;&#xFF0C;<code>load</code> &#x4ECE;&#x5185;&#x5B58;&#x8BFB;&#x51FA;&#x503C;&#xFF0C;<code>store</code> &#x5411;&#x5185;&#x5B58;&#x5B58;&#x503C;&#xFF0C;<code>add</code> &#x7528;&#x4E8E;&#x52A0;&#x6CD5;&#x7B49;&#xFF09;</li>
+</ul>
+<h2 id="llvm-ir-&#x7684;&#x7ED3;&#x6784;">LLVM IR &#x7684;&#x7ED3;&#x6784;</h2>
+<p>&#x5982;&#x679C;&#x770B;&#x5B8C;&#x4E0B;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x4EE5;&#x540E;&#x4F9D;&#x7136;&#x5BF9; LLVM IR &#x7684;&#x7ED3;&#x6784;&#x4E0D;&#x751A;&#x4E86;&#x4E86;&#xFF0C;<a href="https://llvm.org/docs/ProgrammersManual.html#the-core-llvm-class-hierarchy-reference" target="_blank">LLVM Programmer Manual</a> &#x91CC;&#x7684;&#x5185;&#x5BB9;&#x53EF;&#x80FD;&#x80FD;&#x8D77;&#x5230;&#x5E2E;&#x52A9;&#x3002;</p>
+<h3 id="&#x603B;&#x4F53;&#x7ED3;&#x6784;">&#x603B;&#x4F53;&#x7ED3;&#x6784;</h3>
+<ol>
+<li>LLVM IR &#x6587;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x5355;&#x4F4D;&#x79F0;&#x4E3A; <code>module</code>&#xFF08;&#x672C;&#x5B9E;&#x9A8C;&#x4E2D;&#x6D89;&#x53CA;&#x5230;&#x7684;&#x90E8;&#x5206;&#x5747;&#x4E3A;&#x5355; <code>module</code>&#xFF0C;&#x56E0;&#x4E3A;&#x672C;&#x5B9E;&#x9A8C;&#x53EA;&#x6D89;&#x53CA;&#x5230;&#x5355;&#x6587;&#x4EF6;&#x7F16;&#x8BD1;&#xFF09;</li>
+<li>&#x4E00;&#x4E2A; <code>module</code> &#x4E2D;&#x53EF;&#x4EE5;&#x62E5;&#x6709;&#x591A;&#x4E2A;&#x9876;&#x5C42;&#x5B9E;&#x4F53;&#xFF0C;&#x6BD4;&#x5982; <code>function</code> &#x548C; <code>global variavle</code></li>
+<li>&#x4E00;&#x4E2A; <code>function define</code> &#x4E2D;&#x81F3;&#x5C11;&#x6709;&#x4E00;&#x4E2A; <code>basicblock</code></li>
+<li>&#x6BCF;&#x4E2A; <code>basicblock</code> &#x4E2D;&#x6709;&#x82E5;&#x5E72; <code>instruction</code>&#xFF0C;&#x5E76;&#x4E14;&#x90FD;&#x4EE5; <code>terminator instruction</code> &#x7ED3;&#x5C3E;</li>
+</ol>
+<h3 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E0E;&#x51FD;&#x6570;&#x58F0;&#x660E;-definedelcare">&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4E0E;&#x51FD;&#x6570;&#x58F0;&#x660E; (Define&amp;Delcare)</h3>
+<p>&#x5927;&#x5BB6;&#x90FD;&#x5B66;&#x4E60;&#x8FC7;&#x6C47;&#x7F16;&#x8BED;&#x8A00;&#xFF0C;&#x90FD;&#x77E5;&#x9053;&#x5728;&#x6C47;&#x7F16;&#x5C42;&#x9762;&#xFF0C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x4E0E;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x8BED;&#x53E5;&#x662F;&#x76F8;&#x4F3C;&#x7684;&#xFF0C;&#x53EA;&#x4E0D;&#x8FC7;&#x6C47;&#x7F16;&#x51FD;&#x6570;&#x5728;&#x8DF3;&#x8F6C;&#x65F6;&#x6709;&#x4E00;&#x4E9B;&#x9644;&#x52A0;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x800C;&#x5728; LLVM &#x4E2D;&#xFF0C;&#x51FD;&#x6570;&#x62E5;&#x6709;&#x66F4;&#x9AD8;&#x4E00;&#x5C42;&#x7684;&#x62BD;&#x8C61;&#x3002;</p>
+<h4 id="&#x51FD;&#x6570;&#x5B9A;&#x4E49;">&#x51FD;&#x6570;&#x5B9A;&#x4E49;</h4>
+<p>&#x5728;&#x4E0A;&#x9762;&#x751F;&#x6210;&#x7684;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x5DF2;&#x7ECF;&#x770B;&#x5230;&#x4E86;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x6837;&#x5B50;&#xFF0C;&#x4E00;&#x4E2A;&#x6700;&#x57FA;&#x672C;&#x7684;<code>main</code>&#x51FD;&#x6570;&#x7684;&#x5B9A;&#x4E49;&#x957F;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token number">0</span> <span class="token comment">; &#x8FD4;&#x56DE; i32 &#x7C7B;&#x578B;&#x7684;&#x503C; 0</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x51FD;&#x6570;&#x540E;&#x9762;&#x4E5F;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x53C2;&#x6570;&#x5217;&#x8868;&#xFF0C;&#x50CF;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">define</span> <span class="token type class-name">i32</span> <span class="token variable">@foo</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%a</span><span class="token punctuation">,</span><span class="token type class-name">i32</span> <span class="token variable">%b</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token number">0</span> <span class="token comment">; &#x8FD4;&#x56DE; i32 &#x7C7B;&#x578B;&#x7684;&#x503C; 0</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x7684;&#x6700;&#x7B80;&#x5355;&#x7684;&#x8BED;&#x6CD5;&#x5F62;&#x5982;
+<code>define + &#x8FD4;&#x56DE;&#x503C; (i32) + &#x51FD;&#x6570;&#x540D; (@foo) + &#x53C2;&#x6570;&#x5217;&#x8868; ((i32 %a,i32 %b)) +&#x51FD;&#x6570;&#x4F53; ({ret i32 0})</code></p>
+<p>&#xFF08;&#x9898;&#x5916;&#x8BDD;&#xFF1A;&#x6211;&#x4EEC;&#x8FD8;&#x53EF;&#x4EE5;&#x5728;&#x53C2;&#x6570;&#x5217;&#x8868;&#x540E;&#x9762;&#x52A0;&#x4E0A;&#x5C5E;&#x6027;&#x7528;&#x6765;&#x6307;&#x5BFC;&#x4F18;&#x5316;&#x548C;&#x4EE3;&#x7801;&#x751F;&#x6210;&#xFF0C;&#x4E0A;&#x9762;&#x672A;&#x505A;&#x7B80;&#x5316;&#x751F;&#x6210;&#x7684;<code>main.ll</code>&#x4E2D;&#x80FD;&#x591F;&#x770B;&#x5230; <code>main</code> &#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x662F; <code>define dso_local i32 @main() #0...</code>&#xFF0C;&#x8FD9;&#x91CC;&#x7684; <code>#0</code> &#x4E0E;<code>main.ll</code>&#x4E2D;&#x9760;&#x540E;&#x7684;<code>attributes #0 = ...</code>&#x662F;&#x5BF9;&#x5E94;&#x7684;&#xFF0C;&#x4ED6;&#x4EEC;&#x88AB;&#x7528;&#x6765;&#x7ED9;&#x51FD;&#x6570;&#x52A0;&#x4E0A;&#x7279;&#x5B9A;&#x7684;&#x6807;&#x8BB0;&#xFF0C;&#x4F8B;&#x5982;&#x662F;&#x5426;&#x662F;&#x80FD;&#x591F;&#x88AB;&#x5185;&#x8054;&#x3002;&#x8FD9;&#x4E9B;&#x5185;&#x5BB9;&#x548C;&#x5B9E;&#x9A8C;&#x65E0;&#x5173;&#xFF0C;&#x4F60;&#x5E76;&#x4E0D;&#x9700;&#x8981;&#x4E86;&#x638C;&#x63E1;&#xFF0C;&#x611F;&#x5174;&#x8DA3;&#x7684;&#x8BDD;&#x53EF;&#x4EE5;&#x5728; <a href="https://llvm.org/docs/LangRef.html#function-attributes" target="_blank">&#x8FD9;&#x91CC;</a> &#x8FDB;&#x884C;&#x62D3;&#x5C55;&#x9605;&#x8BFB;&#x3002;)</p>
+<h4 id="&#x51FD;&#x6570;&#x58F0;&#x660E;">&#x51FD;&#x6570;&#x58F0;&#x660E;</h4>
+<p>&#x9664;&#x4E86;&#x51FD;&#x6570;&#x5B9A;&#x4E49;&#x4EE5;&#x5916;&#xFF0C;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x4E5F;&#x662F;&#x975E;&#x5E38;&#x5E38;&#x89C1;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4E00;&#x4E2A;<code>module</code>&#x91CC;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x8C03;&#x7528;&#x522B;&#x7684;&#x6A21;&#x5757;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5728;&#x672C;&#x6A21;&#x5757;&#x5148;&#x58F0;&#x660E;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x3002;&#x5728;&#x672C;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x8981;&#x4F7F;&#x7528;&#x5E93;&#x51FD;&#x6570;&#xFF0C;&#x4F60;&#x53EF;&#x80FD;&#x9700;&#x8981;&#x7528;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x7684;&#x5F62;&#x5F0F;&#x5728;&#x4F60;&#x751F;&#x6210;&#x7684;<code>.ll</code>&#x6587;&#x4EF6;&#x91CC;&#x58F0;&#x660E;&#x5E93;&#x51FD;&#x6570;&#x7684;&#x540D;&#x5B57;&#xFF08;&#x6211;&#x4EEC;&#x5C06;&#x5728;&#x4E0B;&#x9762;&#x505A;&#x51FA;&#x793A;&#x4F8B;&#xFF09;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x7684;&#x7ED3;&#x6784;&#x4E5F;&#x6BD4;&#x8F83;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x662F;&#x4F7F;&#x7528;<code>declare</code>&#x5173;&#x952E;&#x8BCD;&#x66FF;&#x6362;<code>define</code>&#xFF0C;&#x5E76;&#x4E14;&#x6CA1;&#x6709;&#x51FD;&#x6570;&#x4F53;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E9B;&#x4F60;&#x5728;&#x540E;&#x7EED;&#x5B9E;&#x9A8C;&#x4E2D;&#x5C06;&#x4F1A;&#x7528;&#x5230;&#x7684;&#x5E93;&#x51FD;&#x6570;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#xFF1A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">declare</span> <span class="token type class-name">i32</span> <span class="token variable">@getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">i32</span> <span class="token variable">@getarray</span><span class="token punctuation">(</span><span class="token type class-name">i32</span><span class="token punctuation">*</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">i32</span> <span class="token variable">@getch</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">void</span> <span class="token variable">@putint</span><span class="token punctuation">(</span><span class="token type class-name">i32</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">void</span> <span class="token variable">@putch</span><span class="token punctuation">(</span><span class="token type class-name">i32</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">void</span> <span class="token variable">@putarray</span><span class="token punctuation">(</span><span class="token type class-name">i32</span><span class="token punctuation">,</span><span class="token type class-name">i32</span><span class="token punctuation">*</span><span class="token punctuation">)</span>
+</code></pre>
+<h3 id="&#x57FA;&#x672C;&#x5757;&#xFF08;basic-block&#xFF09;">&#x57FA;&#x672C;&#x5757;&#xFF08;Basic Block&#xFF09;</h3>
+<p>&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x662F;&#x5305;&#x542B;&#x4E86;&#x82E5;&#x5E72;&#x4E2A;&#x6307;&#x4EE4;&#x4EE5;&#x53CA;&#x4E00;&#x4E2A;&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#x7684;&#x4EE3;&#x7801;&#x5E8F;&#x5217;&#x3002;</p>
+<p>&#x57FA;&#x672C;&#x5757;&#x53EA;&#x4F1A;&#x4ECE;&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#x9000;&#x51FA;&#xFF0C;&#x5E76;&#x4E14;&#x57FA;&#x672C;&#x5757;&#x7684;&#x6267;&#x884C;&#x662F;&#x539F;&#x5B50;&#x6027;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5982;&#x679C;&#x57FA;&#x672C;&#x5757;&#x4E2D;&#x7684;&#x4E00;&#x6761;&#x6307;&#x4EE4;&#x6267;&#x884C;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x5757;&#x5185;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x7684;&#x6307;&#x4EE4;&#x4E5F;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x3002;&#x8FD9;&#x4E2A;&#x7EA6;&#x675F;<strong>&#x662F;&#x901A;&#x8FC7;&#x4EE3;&#x7801;&#x7684;&#x8BED;&#x4E49;&#x5B9E;&#x73B0;&#x7684;</strong>&#x3002;&#x57FA;&#x672C;&#x5757;&#x5185;&#x90E8;&#x6CA1;&#x6709;&#x63A7;&#x5236;&#x6D41;&#xFF0C;&#x63A7;&#x5236;&#x6D41;&#x662F;&#x7531;&#x591A;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x76F4;&#x63A5;&#x901A;&#x8FC7;&#x8DF3;&#x8F6C;&#x6307;&#x4EE4;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<p>&#x5F62;&#x8C61;&#x5730;&#x8BB2;&#xFF0C;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x662F;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E14;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x5C5E;&#x4E8E;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x3002;</p>
+<p>&#x4F8B;&#x5982;&#x4F60;&#x6709;&#x4E00;&#x4EFD;&#x4E0D;&#x542B;&#x8DF3;&#x8F6C;&#xFF08;&#x6CA1;&#x6709;&#x5206;&#x652F;&#x3001;&#x5FAA;&#x73AF;&#xFF09;&#x4E5F;&#x6CA1;&#x6709;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7684;&#x3001;&#x53EA;&#x4F1A;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4EFD;&#x4EE3;&#x7801;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x3002;</p>
+<p>&#x7136;&#x800C;&#xFF0C;&#x4E00;&#x65E6;&#x5728;&#x4E2D;&#x95F4;&#x52A0;&#x5165;&#x4E00;&#x4E2A; <code>if-else</code> &#x8BED;&#x53E5;&#xFF0C;&#x90A3;&#x4E48;&#x4EE3;&#x7801;&#x5C31;&#x4F1A;&#x53D8;&#x6210;&#x56DB;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#xFF1A;<code>if</code> &#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4ECD;&#x7136;&#x662F;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x4E2D;&#xFF1B;<code>then</code> &#x548C; <code>else</code> &#x5404;&#x81EA;&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x90FD;&#x662F;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x56E0;&#x6B64;&#x5404;&#x6709;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#xFF1B;<code>if</code> &#x4E4B;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x4E5F;&#x662F;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x4E5F;&#x5728;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x4E2D;&#x3002;&#x6240;&#x4EE5;&#x603B;&#x5171;&#x56DB;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x3002;</p>
+<h3 id="&#x6307;&#x4EE4;&#xFF08;instruction&#xFF09;">&#x6307;&#x4EE4;&#xFF08;Instruction&#xFF09;</h3>
+<p>&#x6307;&#x4EE4;&#x6307;&#x7684;&#x662F; LLVM IR &#x4E2D;&#x7684;&#x975E;&#x5206;&#x652F;&#x6307;&#x4EE4;&#xFF08;non-branching Instruction&#xFF09;&#xFF0C;&#x901A;&#x5E38;&#x7528;&#x6765;&#x8FDB;&#x884C;&#x67D0;&#x79CD;&#x8BA1;&#x7B97;&#x6216;&#x8005;&#x662F;&#x8BBF;&#x5B58;&#xFF08;&#x6BD4;&#x5982;&#x4E0A;&#x9762;&#x4F8B;&#x5B50;&#x4E2D;&#x7684; <code>add</code>&#x3001;<code>load</code>&#xFF09;&#xFF0C;&#x8FD9;&#x4E9B;&#x6307;&#x4EE4;&#x5E76;&#x4E0D;&#x4F1A;&#x6539;&#x53D8;&#x7A0B;&#x5E8F;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x3002;</p>
+<p>&#x503C;&#x5F97;&#x4E00;&#x63D0;&#x7684;&#x662F;&#xFF0C;<code>call</code> &#x6307;&#x4EE4;&#x4E5F;&#x662F;&#x975E;&#x5206;&#x652F;&#x6307;&#x4EE4;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x4F7F;&#x7528; <code>call</code> &#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x6211;&#x4EEC;&#x5E76;&#x4E0D;&#x5173;&#x7CFB;&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x7684;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#xFF08;&#x5373;&#x4F7F;&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x5B58;&#x5728;&#x7684;&#x63A7;&#x5236;&#x6D41;&#xFF09;&#xFF0C;&#x800C;&#x662F;&#x53EA;&#x5173;&#x5FC3;&#x6211;&#x4EEC;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x4EE5;&#x53CA;&#x88AB;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x56E0;&#x6B64;&#x8FD9;&#x5E76;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x6211;&#x4EEC;&#x5F53;&#x524D;&#x7A0B;&#x5E8F;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x3002;</p>
+<h3 id="&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#xFF08;terminator-instruction&#xFF09;">&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#xFF08;Terminator instruction&#xFF09;</h3>
+<p>&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;<strong>&#x4E00;&#x5B9A;</strong>&#x4F4D;&#x4E8E;&#x67D0;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x7684;&#x672B;&#x5C3E;&#xFF08;&#x5426;&#x5219;&#x4E2D;&#x95F4;&#x5C31;&#x6539;&#x53D8;&#x4E86;&#x57FA;&#x672C;&#x5757;&#x5185;&#x7684;&#x63A7;&#x5236;&#x6D41;&#xFF09;&#xFF1B;&#x53CD;&#x8FC7;&#x6765;&#xFF0C;&#x6BCF;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x7684;&#x672B;&#x5C3E;&#x4E5F;<strong>&#x4E00;&#x5B9A;</strong>&#x662F;&#x4E00;&#x6761;&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#xFF08;&#x5426;&#x5219;&#x4ECD;&#x7136;&#x662F;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x7684;&#xFF0C;&#x57FA;&#x672C;&#x5757;&#x4E0D;&#x5E94;&#x8BE5;&#x7ED3;&#x675F;&#xFF09;&#x3002;&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#x51B3;&#x5B9A;&#x4E86;&#x7A0B;&#x5E8F;&#x63A7;&#x5236;&#x6D41;&#x7684;&#x6267;&#x884C;&#x65B9;&#x5411;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>ret</code> &#x6307;&#x4EE4;&#x4F1A;&#x4F7F;&#x7A0B;&#x5E8F;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x8FD4;&#x56DE;&#x5230;&#x5F53;&#x524D;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8005;&#xFF08;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A; <code>return</code>&#xFF09;&#xFF0C;<code>br</code> &#x6307;&#x4EE4;&#x8868;&#x793A;&#x6839;&#x636E;&#x6807;&#x8BC6;&#x7B26;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x6D41;&#x7684;&#x65B9;&#x5411;&#xFF08;&#x53EF;&#x4EE5;&#x7406;&#x89E3;&#x4E3A; <code>if</code>&#xFF09;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x6765;&#x4ECB;&#x7ECD;&#x7A0B;&#x5E8F;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x662F;&#x5982;&#x4F55;&#x901A;&#x8FC7;&#x57FA;&#x672C;&#x5757;&#x4E0E;&#x7EC8;&#x7ED3;&#x6307;&#x4EE4;&#x63CF;&#x8FF0;&#x7684;&#xFF1A;</p>
+<pre class="language-"><code class="lang-c"><span class="token comment">//if.c</span>
+<span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token function">getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> b <span class="token operator">=</span> <span class="token function">getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">int</span> c <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>a <span class="token operator">==</span> b<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        c <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        c <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">putint</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x5C06; <code>if.c</code> &#x5BFC;&#x51FA;&#x4E3A; LLVM IR &#x5E76;&#x4E14;&#x5220;&#x53BB;&#x5B9E;&#x9A8C;&#x65E0;&#x5173;&#x90E8;&#x5206;&#xFF0C;<strong>&#x518D;&#x624B;&#x52A8;&#x52A0;&#x4E0A;&#x51FD;&#x6570;&#x58F0;&#x660E;</strong>&#xFF08;&#x6211;&#x4EEC;&#x4F1A;&#x5728;&#x540E;&#x7EED;&#x5B9E;&#x9A8C;&#x4E2D;&#x4F1A;&#x8BF4;&#x660E;&#x8981;&#x600E;&#x4E48;&#x505A;&#xFF09;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#x6240;&#x793A;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">declare</span> <span class="token type class-name">i32</span> <span class="token variable">@getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">declare</span> <span class="token type class-name">void</span> <span class="token variable">@putint</span><span class="token punctuation">(</span><span class="token type class-name">i32</span><span class="token punctuation">)</span>
+<span class="token keyword">define</span>  <span class="token type class-name">i32</span> <span class="token variable">@main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token variable">%1</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+  <span class="token variable">%2</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+  <span class="token variable">%3</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+  <span class="token variable">%4</span> <span class="token punctuation">=</span> <span class="token keyword">alloca</span> <span class="token type class-name">i32</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%1</span>
+  <span class="token variable">%5</span> <span class="token punctuation">=</span> <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token variable">@getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%5</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%2</span>
+  <span class="token variable">%6</span> <span class="token punctuation">=</span> <span class="token keyword">call</span> <span class="token type class-name">i32</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token variable">@getint</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token variable">%6</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span>
+  <span class="token variable">%7</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%2</span>
+  <span class="token variable">%8</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%3</span>
+  <span class="token variable">%9</span> <span class="token punctuation">=</span> <span class="token keyword">icmp</span> <span class="token keyword">eq</span> <span class="token type class-name">i32</span> <span class="token variable">%7</span><span class="token punctuation">,</span> <span class="token variable">%8</span>
+  <span class="token keyword">br</span> <span class="token type class-name">i1</span> <span class="token variable">%9</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%10</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%11</span>
+
+<span class="token number">10</span>:                                               <span class="token comment">; preds = %0</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span>
+  <span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%12</span>
+
+<span class="token number">11</span>:                                               <span class="token comment">; preds = %0</span>
+  <span class="token keyword">store</span> <span class="token type class-name">i32</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span>
+  <span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%12</span>
+
+<span class="token number">12</span>:                                               <span class="token comment">; preds = %11, %10</span>
+  <span class="token variable">%13</span> <span class="token punctuation">=</span> <span class="token keyword">load</span> <span class="token type class-name">i32</span><span class="token punctuation">,</span> <span class="token type class-name">i32</span><span class="token punctuation">*</span> <span class="token variable">%4</span>
+  <span class="token keyword">call</span> <span class="token type class-name">void</span> <span class="token variable">@putint</span><span class="token punctuation">(</span><span class="token type class-name">i32</span> <span class="token variable">%13</span><span class="token punctuation">)</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>&#x8FD9;&#x4E2A;&#x7A0B;&#x5E8F;&#x7684;&#x63A7;&#x5236;&#x6D41;&#x5982;&#x56FE;&#x6240;&#x793A;
+<img src="../pic/llvm_primer_if.png" alt=""></p>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;<code>br</code>&#x6307;&#x4EE4;&#x4E00;&#x5171;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x51FA;&#x73B0;&#x4E86;&#x4E09;&#x6B21;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">br</span> <span class="token type class-name">i1</span> <span class="token variable">%9</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%10</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%11</span> <span class="token comment">; A</span>
+<span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%12</span> <span class="token comment">; B</span>
+<span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%12</span> <span class="token comment">; C</span>
+</code></pre>
+<p>&#x5728;&#x8FD9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x5148;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;<code>br</code>&#x6307;&#x4EE4;&#x7684;&#x7528;&#x6CD5;&#xFF0C;
+<code>br</code>&#x6307;&#x4EE4;&#x7684;&#x8BED;&#x6CD5;&#x4E3A;<code>br + &#x6807;&#x5FD7;&#x4F4D; + truelabel + falselabel</code>&#xFF0C;&#x6216;&#x8005;<code>br + label</code></p>
+<p>&#x5F62;&#x5982;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D; <code>A</code> &#x7528;&#x6CD5;&#x7684;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;&#x53EB;&#x505A;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#xFF0C;&#x5982;&#x679C;&#x6807;&#x5FD7;&#x4F4D;&#x4E3A;<code>1</code>&#xFF0C;&#x7A0B;&#x5E8F;&#x4F1A;&#x8DF3;&#x5F80;<code>truelabel</code>&#x6807;&#x8BB0;&#x7684;<code>basicblock</code>&#x3002;&#x5982;&#x679C;&#x6807;&#x5FD7;&#x4F4D;&#x4E3A;<code>0</code>&#xFF0C;&#x7A0B;&#x5E8F;&#x4F1A;&#x8DF3;&#x5F80;<code>falseblock</code>&#x6807;&#x8BB0;&#x7684;<code>basicblock</code>&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5728;&#x4EE3;&#x7801;<code>br i1 %9, label %10, label %11</code>&#x4E2D;&#xFF0C;&#x5982;&#x679C;<code>%9</code>&#x7684;&#x503C;&#x4E3A;<code>1</code>&#xFF0C;&#x5C31;&#x4F1A;&#x8DF3;&#x8F6C;&#x5F80;&#x57FA;&#x672C;&#x5757;<code>%10</code>&#xFF0C;&#x5982;&#x679C;&#x4E3A;<code>0</code>&#xFF0C;&#x5C31;&#x4F1A;&#x8DF3;&#x8F6C;&#x5F80;&#x57FA;&#x672C;&#x5757;<code>%11</code>&#x3002;</p>
+<p>&#x5F62;&#x5982;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;<code>B,C</code>&#x7684;&#x7528;&#x6CD5;&#x7684;&#x8F6C;&#x79FB;&#x6307;&#x4EE4;&#x53EB;&#x505A;&#x65E0;&#x6761;&#x4EF6;&#x8F6C;&#x79FB;&#xFF0C;&#x4ED6;&#x4F1A;&#x5728;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x5230;&#x6B64;&#x5904;&#x65F6;&#x65E0;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;&#x5230;&#x76EE;&#x6807;&#x57FA;&#x672C;&#x5757;&#x3002;&#x5728;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;<code>B,C</code>&#x4E24;&#x5904;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x4F1A;&#x65E0;&#x6761;&#x4EF6;&#x8DF3;&#x8F6C;&#x5230;&#x57FA;&#x672C;&#x5757;<code>%12</code>&#x3002;</p>
+<p>&#x5982;&#x4E0A;&#x56FE;&#x6240;&#x793A;&#xFF0C;<code>%9</code>&#x662F;<code>icmp eq</code>&#x6307;&#x4EE4;&#xFF08;&#x7528;&#x6765;&#x5224;&#x65AD;&#x4E24;&#x4E2A;&#x503C;&#x662F;&#x5426;&#x76F8;&#x7B49;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x5728;<em>&#x63A8;&#x8350;&#x4F7F;&#x7528;&#x7684;&#x6307;&#x4EE4;</em>&#x4E00;&#x8282;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;&#xFF09;&#x7684;&#x7ED3;&#x679C;&#xFF0C;&#x5982;&#x679C;<code>%7</code>&#x7B49;&#x4E8E;<code>%8</code>&#xFF0C;&#x90A3;&#x4E48;<code>%9</code>&#x7684;&#x503C;&#x5C31;&#x4F1A;&#x4E3A;<code>1</code>&#xFF0C;&#x5426;&#x5219;&#x4E3A;<code>0</code>&#x3002;&#x8FD9;&#x6761;&#x6307;&#x4EE4;&#x5BF9;&#x5E94;&#x4E86;&#x6E90;&#x4EE3;&#x7801;&#x4E2D;&#x7684;<code>if(a == b)</code>&#xFF0C;<code>c=5</code>&#x5BF9;&#x5E94;&#x4E86;&#x57FA;&#x672C;&#x5757;<code>%10</code>&#xFF0C;<code>c=10</code>&#x5BF9;&#x5E94;&#x4E86;&#x57FA;&#x672C;&#x5757;<code>%11</code>&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x5757;&#x8FD0;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#x90FD;&#x9700;&#x8981;&#x8DF3;&#x8F6C;&#x5230;&#x76EE;&#x6807;&#x57FA;&#x672C;&#x5757;<code>%12</code>&#x6267;&#x884C;&#x540E;&#x9762;&#x7684;&#x8BED;&#x53E5;<code>putint(c)</code>&#x4EE5;&#x53CA;<code>return 0</code>&#x3002;</p>
+<h3 id="&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;">&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;</h3>
+<p>&#x672C;&#x8282;&#x7531; <a href="https://llvm.org/docs/LangRef.html#type-system" target="_blank">LLVM Lang Ref:type-system</a> &#x8282;&#x9009;&#x7FFB;&#x8BD1;&#x800C;&#x6765;</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x4ECB;&#x7ECD; LLVM IR &#x7684;&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;&#x3002;
+&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;&#x662F; LLVM IR &#x4E2D;&#x6700;&#x91CD;&#x8981;&#x7684;&#x90E8;&#x5206;&#x4E4B;&#x4E00;&#xFF0C;&#x5F3A;&#x5927;&#x7684;&#x7C7B;&#x578B;&#x7CFB;&#x7EDF;&#x5728;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x964D;&#x4F4E;&#x4E86;&#x8BFB;&#x53D6;&#x548C;&#x5206;&#x6790; LLVM IR &#x7684;&#x96BE;&#x5EA6;&#xFF0C;&#x5E76;&#x4E14;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x4E9B;&#x5728;&#x4E00;&#x822C;&#x7684;&#x7684;&#x4E09;&#x5730;&#x5740;&#x7801; IR &#x4E2D;&#x96BE;&#x4EE5;&#x5B9E;&#x73B0;&#x7684;&#x4F18;&#x5316;&#x3002;LLVM IR &#x7684;&#x7C7B;&#x578B;&#x591A;&#x79CD;&#x591A;&#x6837;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x6B64;&#x53EA;&#x4ECB;&#x7ECD;&#x53EF;&#x80FD;&#x548C;&#x5B9E;&#x9A8C;&#x5173;&#x7CFB;&#x7D27;&#x5BC6;&#x7684;&#x51E0;&#x79CD;&#x3002;</p>
+<h4 id="void-type">Void Type</h4>
+<p>&#x4EC5;&#x5360;&#x4F4D;&#x7528;&#xFF0C;&#x4E0D;&#x4EE3;&#x8868;&#x4EFB;&#x4F55;&#x503C;&#x4E5F;&#x4E0D;&#x5360;&#x4EFB;&#x4F55;&#x7A7A;&#x95F4;&#x3002;
+&#x6BD4;&#x5982;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">define</span> <span class="token type class-name">void</span> <span class="token variable">@foo</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+  <span class="token keyword">ret</span> <span class="token type class-name">void</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h4 id="integer-type">Integer Type</h4>
+<p>&#x6700;&#x7B80;&#x5355;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x4EE3;&#x8868;&#x4E86;&#x540E;&#x9762;&#x6570;&#x5B57;&#x51B3;&#x5B9A;&#x7684;&#x4F4D;&#x5BBD;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x6BD4;&#x5982;<code>i1</code>&#x4EE3;&#x8868;&#x7684;&#x5C31;&#x662F;<code>1bit</code>&#x957F;&#x7684; integer&#xFF08;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F; <code>bool</code>&#xFF09;&#xFF0C;<code>i32</code>&#x5C31;&#x662F;<code>32bit</code>&#x957F;&#x7684; integer, &#x5728;&#x5B9E;&#x9A8C;&#x6D89;&#x53CA;&#x5185;&#x5BB9;&#x91CC;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;<code>i1</code>&#x548C;<code>i32</code>&#x7C7B;&#x578B;&#x3002;
+&#x6BD4;&#x5982;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">ret</span> <span class="token type class-name">i32</span> <span class="token number">0</span>
+<span class="token keyword">br</span> <span class="token type class-name">i1</span> <span class="token variable">%2</span><span class="token punctuation">,</span><span class="token type class-name">label</span>  <span class="token variable">%3</span><span class="token punctuation">,</span><span class="token type class-name">label</span>  <span class="token variable">%4</span>
+</code></pre>
+<h4 id="label-type">Label Type</h4>
+<p>&#x6807;&#x7B7E;&#x7C7B;&#x578B;&#xFF0C;&#x7528;&#x4F5C;&#x4EE3;&#x7801;&#x6807;&#x7B7E;&#xFF0C;&#x6BD4;&#x5982;</p>
+<pre class="language-"><code class="lang-llvm"><span class="token keyword">br</span> <span class="token type class-name">i1</span> <span class="token variable">%9</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%10</span><span class="token punctuation">,</span> <span class="token type class-name">label</span> <span class="token variable">%11</span>
+<span class="token keyword">br</span> <span class="token type class-name">label</span> <span class="token variable">%12</span>
+</code></pre>
+<h4 id="&#x5176;&#x4ED6;-type">&#x5176;&#x4ED6; Type</h4>
+<p>&#x5728;&#x540E;&#x7EED;&#x7684;&#x5B9E;&#x9A8C;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x8FD8;&#x4F1A;&#x4ECB;&#x7ECD; <code>Array Type</code>&#xFF08;&#x6570;&#x7EC4;&#x90E8;&#x5206;&#xFF09;&#x4EE5;&#x53CA;<code>Pointer Type</code>&#xFF08;&#x53D8;&#x91CF;&#x90E8;&#x5206;&#xFF09;&#xFF0C;&#x4E3A;&#x4E86;&#x51CF;&#x8F7B;&#x5927;&#x5BB6;&#x7B2C;&#x4E00;&#x6B21;&#x5B9E;&#x9A8C;&#x7684;&#x5B66;&#x4E60;&#x538B;&#x529B;&#xFF0C;&#x5728;&#x6B64;&#x5C31;&#x4E0D;&#x518D;&#x8BE6;&#x8FF0;&#x3002;</p>
+<h3 id="&#x8BF4;&#x5728;&#x6700;&#x540E;">&#x8BF4;&#x5728;&#x6700;&#x540E;</h3>
+<p>LLVM IR &#x662F;&#x4E00;&#x4E2A;&#x975E;&#x5E38;&#x5E9E;&#x5927;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x8FD9;&#x8282;&#x6587;&#x7AE0;&#x4EC5;&#x4EC5;&#x80FD;&#x591F;&#x4ECB;&#x7ECD;&#x5230;&#x5176;&#x6700;&#x91CD;&#x8981;&#x7684;&#x62BD;&#x8C61;&#x4EE5;&#x53CA;&#x548C;&#x6211;&#x4EEC;&#x5B9E;&#x9A8C;&#x8054;&#x7CFB;&#x6700;&#x7D27;&#x5BC6;&#x7684;&#x62BD;&#x8C61;&#xFF0C;&#x4F60;&#x4E0D;&#x80FD;&#x6307;&#x671B;&#x5149;&#x770B;&#x8FD9;&#x4E00;&#x8282;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x5BF9;&#x5176;&#x5B8C;&#x5168;&#x4E86;&#x89E3;&#xFF0C;&#x5F53;&#x4F60;&#x5728;&#x540E;&#x7EED;&#x5B9E;&#x9A8C;&#x4E2D;&#x9047;&#x5230;&#x95EE;&#x9898;&#x65F6;&#xFF0C;&#x4F60;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x67E5;&#x770B; Lang Ref&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4EB2;&#x81EA;&#x7F16;&#x8BD1;&#x4E24;&#x4EFD;&#x4EE3;&#x7801;&#x5E76;&#x770B;&#x770B; Clang &#x662F;&#x600E;&#x4E48;&#x505A;&#x7684;&#x3002;&#x4F60;&#x8FD8;&#x53EF;&#x4EE5;&#x5728; <a href="https://github.com/BUAA-SE-Compiling/miniSysY-tutorial/issues" target="_blank">github</a> &#x901A;&#x8FC7; issue &#x7684;&#x5F62;&#x5F0F;&#x5411;&#x52A9;&#x6559;&#x63D0;&#x95EE;&#xFF08;&#x4E0D;&#x8FC7;&#x6211;&#x4EEC;&#x4E24;&#x4F4D;&#x52A9;&#x6559;&#x9700;&#x8981;&#x9762;&#x5BF9;&#x63A5;&#x8FD1; 300 &#x4F4D;&#x540C;&#x5B66;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x6539;&#x4F5C;&#x4E1A;&#xFF0C;&#x51FA;&#x5B9E;&#x9A8C;&#xFF0C;&#x7F16;&#x5199;&#x793A;&#x4F8B;&#x4EE3;&#x7801;&#xFF0C;&#x65F6;&#x95F4;&#x5B9E;&#x5728;&#x4E0D;&#x7B97;&#x5145;&#x88D5;&#xFF0C;&#x6709;&#x53EF;&#x80FD;&#x65E0;&#x6CD5;&#x53CA;&#x65F6;&#x56DE;&#x590D;&#xFF09;</p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="llvm_tool_chain.html" class="navigation navigation-prev " aria-label="Previous page: LLVM 工具链介绍">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="llvm_ir_ssa.html" class="navigation navigation-next " aria-label="Next page: LLVM IR SSA 介绍">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"LLVM IR 快速上手","level":"1.4.3","depth":2,"next":{"title":"LLVM IR SSA 介绍","level":"1.4.4","depth":2,"path":"pre/llvm_ir_ssa.md","ref":"pre/llvm_ir_ssa.md","articles":[]},"previous":{"title":"LLVM 工具链介绍","level":"1.4.2","depth":2,"path":"pre/llvm_tool_chain.md","ref":"pre/llvm_tool_chain.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["-lunr","-search","search-pro","expandable-chapters","code","chapter-fold","splitter","github","-highlight","prism","prism-themes","theme-comscore","katex-pp"],"pluginsConfig":{"chapter-fold":{},"prism":{"lang":{"shell":"bash"},"css":["prism-themes/themes/prism-synthwave84.css"]},"github":{"url":"https://github.com/BUAA-SE-Compiling/Slang-tutorial"},"splitter":{},"search-pro":{},"code":{"copyButtons":true},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-comscore":{},"prism-themes":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"katex-pp":{},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"pre/llvm_ir_quick_primer.md","mtime":"2022-01-01T14:16:35.445Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-01-01T14:17:28.885Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search-pro/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-chapter-fold/chapter-fold.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+        
+    
+
+    </body>
+</html>
+
